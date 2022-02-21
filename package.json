@@ -2,10 +2,10 @@
   "name": "ecommerce-mysql",
   "version": "1.0.0",
   "description": "A full stack ecommerce website that uses MySQL for the database.",
-  "main": "server.js",
+  "main": "index.js",
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,5 @@
   "bugs": {
     "url": "https://github.com/StevenLof777/ecommerce-mysql/issues"
   },
-  "homepage": "https://github.com/StevenLof777/ecommerce-mysql#readme",
-  "dependencies": {
-    "connect-session-sequelize": "^7.1.2",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "express-session": "^1.17.2",
-    "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.16.1"
-  }
+  "homepage": "https://github.com/StevenLof777/ecommerce-mysql#readme"
 }
