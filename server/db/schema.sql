@@ -8,11 +8,11 @@ CREATE TABLE users (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   zip_code INT(5) NOT NULL,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP,
   -- How to validate
   email VARCHAR(30) NOT NULL UNIQUE,
   password VARCHAR(30) NOT NULL,
+  created_at TIMESTAMP,
+  modified_at TIMESTAMP,
   primary key(id)
 );
 SELECT * FROM users;
