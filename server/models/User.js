@@ -1,10 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// create our User model
 class User extends Model {}
 
-// create fields/columns for User model
 User.init(
   {
     id: {
@@ -23,7 +21,7 @@ User.init(
     },
     zip_code: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
