@@ -19,13 +19,33 @@ SELECT * FROM users;
 
 CREATE TABLE shoes (
   id INT AUTO_INCREMENT NOT NULL,
-  username VARCHAR(30) NOT NULL,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
-  created_at TIMESTAMP,
-  modified_at TIMESTAMP,
-  password TEXT NOT NULL
+  shoe_name VARCHAR(30) NOT NULL,
+  price DECIMAL(5, 2) NOT NULL,
+  category VARCHAR(30) NOT NULL,
+  stock INT NOT NULL,
+  featured BOOLEAN, 
+  category_id INT not null,
+  primary key(id),
+  foreign key(category_id) references category(id)
 );
+
+CREATE TABLE shoes (
+  id INT AUTO_INCREMENT NOT NULL,
+  shoe_name VARCHAR(30) NOT NULL,
+  price DECIMAL(5, 2) NOT NULL,
+  category VARCHAR(30) NOT NULL,
+  stock INT NOT NULL,
+  featured BOOLEAN, 
+  category_id INT not null,
+  primary key(id),
+  foreign key(category_id) references category(id)
+);
+-- Shoes
+SELECT * FROM users;
+INSERT INTO users (first_name, last_name, zip_code, email, password) 
+values ('John', 'Doe', 12345, 'example@email.com', 'badpw');
+-- How do I delete the row full of nulls
+DELETE FROM users WHERE id = 1;
 
 CREATE TABLE category (
   id INT AUTO_INCREMENT NOT NULL,
@@ -33,3 +53,7 @@ CREATE TABLE category (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
 );
+
+CREATE TABLE cart (
+	id INT AUTO_INCREMENT NOT NULL,
+)
