@@ -4,7 +4,7 @@ import './styles.css';
 const Navigation = () => {
     return(
 
-      <Navbar expand="lg" >
+      <Navbar expand="lg" bg="light" className="navContainer">
         <Navbar.Brand href="#home">KickBacks</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
