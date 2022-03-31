@@ -1,23 +1,23 @@
 import React from 'react';
-import './App.css';
+import './index.css';
+
+import Signup from './pages/Signup'
+import Home from './pages/Home'
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { Container } from 'react-bootstrap';
+
 
 function App() {
   return (
-    <div className="App">
-
-      <div class='container'>
-      <h1>TESTING CRUD</h1>
-
-      <form class='col'>
-        <label class='row'>Movie Name: </label>
-        <input class='row' type="text" name="movieName"/>
-        <label class='row'>Review: </label>
-        <input class='row' type="text" name="review"/>
-        <button class='row'>Submit</button>
-      </form>
-      </div>
-
-    </div>
+    <BrowserRouter>
+      <Container maxWidth='lg'>
+        <Routes>
+          <Route path='/' element={<Signup/>}/>
+          <Route path='/home' element={<Home/>}/>
+        </Routes>
+      </Container>
+    </BrowserRouter>
   );
 }
 
