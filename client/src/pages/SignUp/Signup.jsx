@@ -10,42 +10,52 @@ const Signup = () => {
     const [formData, setFormData] = useState(initialState);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleChangeUser = (event) => {
-      event.preventDefault();
-      const { value } = event.target;
+    const handleChangeFN = (e) => {
+      e.preventDefault();
+      const { value } = e.target;
       setFormData({
         ...formData,
-        username: value,
+        firstName: value,
       });
     };
   
-    const handleChangeEmail = (event) => {
-      event.preventDefault();
-      const { value } = event.target;
+
+    const handleChangeLN = (e) => {
+      e.preventDefault();
+      const { value } = e.target;
+      setFormData({
+        ...formData,
+        lastName: value,
+      });
+    };
+  
+    const handleChangeEmail = (e) => {
+      e.preventDefault();
+      const { value } = e.target;
       setFormData({
         ...formData,
         email: value,
       });
     };
   
-    const handleChangePw = (event) => {
-      event.preventDefault();
-      const { value } = event.target;
+    const handleChangePw = (e) => {
+      e.preventDefault();
+      const { value } = e.target;
       setFormData({
         ...formData,
         password: value,
       });
     };
   
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
+    const handleFormSubmit = async (e) => {
+      e.preventDefault();
       console.log(formData)
       try {
         const { data } = await signup({
           variables: { ...formData },
         });
 
-        // AuthService.login(data.addUser.token);
+        AuthService.login(data.addUser.token);
       } catch (e) {
         console.error(e);
       }
@@ -63,8 +73,7 @@ const Signup = () => {
             <Form.Control 
             type="firstName" 
             placeholder="Enter first name" 
-            onChange={handleChangeUser}
-            // value={formData.firstName}
+            onChange={handleChangeFN}
             required
             />
             <Form.Control.Feedback type='invalid'>Required</Form.Control.Feedback>
@@ -75,8 +84,7 @@ const Signup = () => {
             <Form.Control 
             type="lastName" 
             placeholder="Enter last name" 
-            // onChange={handleInputChange}
-            // value={formData.lastName}
+            onChange={handleChangeLN}
             required
             />
         </Form.Group>
@@ -86,7 +94,7 @@ const Signup = () => {
             <Form.Control 
             type="email" 
             placeholder="Enter email" 
-            // onChange={handleInputChange}
+            onChange={handleChangeEmail}
             // value={formData.email}
             required
             />
@@ -100,7 +108,7 @@ const Signup = () => {
             <Form.Control 
             type="password" 
             placeholder="Password" 
-            // onChange={handleInputChange}
+            onChange={handleChangePw}
             // value={formData.password}
             required
             />
