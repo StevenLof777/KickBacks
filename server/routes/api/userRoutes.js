@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const User = require('../../models/User')
+const User = require('../../models/UserModel')
 
 router.get('/', async (req, res) => {
   console.log('am i here')

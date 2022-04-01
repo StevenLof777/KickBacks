@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Form, Button, Alert} from 'react-bootstrap';
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import AuthService from '../../actions/auth';
-import {signup} from '../../api/index'
+// import AuthService from '../../actions/auth';
+// import {signup} from '../../api/index'
 
 
 const Signup = () => {
@@ -12,13 +12,52 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [pw, setPW] = useState('');
     const [showAlert, setShowAlert] = useState('');
+
+    const [loginStatus, setLoginStatus] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    const register = () => {
+        axios.post("http://localhost:3001/signup", {
+          firstName: fn,
+          lasName: ln,
+          email: email,
+          password: pw,
+        }).then((response) => {
+          console.log(response);
+        });
+      };
+    
+    //   const login = () => {
+    //     axios.post("http://localhost:3001/login", {
+    //         email: email,
+    //         password: pw,
+    //     }).then((response) => {
+    //       if (response.data.message) {
+    //         setLoginStatus(response.data.message);
+    //       } else {
+    //         setLoginStatus(response.data[0].username);
+    //       }
+    //     });
+    //   };
+    
+      useEffect(() => {
+        axios.get("http://localhost:3001/signup").then((response) => {
+          if (response.data.loggedIn === true) {
+            setLoginStatus('Signup successfull');
+          }
+        });
+      }, []);
+    
     
     return(
         <Form>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
-
+        <h1>
+            {loginStatus}
+        </h1>
         <Form.Group className="mb-3" controlId="formBasicFirstName">
             <Form.Label>First name</Form.Label>
             <Form.Control 
