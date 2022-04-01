@@ -1,24 +1,23 @@
 import React from 'react';
 import './index.css';
-
-import Signup from './pages/Signup/Signup'
-import Home from './pages/Home/Home'
-import Navigation from './components/NavBar/Navigation'
-
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Container } from 'react-bootstrap';
-
+import Dashboard from "./pages/Profile/Dashboard";
+import Login from "./pages/Login/Login";
+import Navbar from "./pages/Profile/Navbar.js";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   return (
     <BrowserRouter>
-    <Navigation/>
-      <Container >
-        <Routes>
-          <Route path='/' element={<Signup/>}/>
-          <Route path='/home' element={<Home/>}/>
-        </Routes>
-      </Container>
+    <Navbar/>
+      <Routes>
+        <Route exact path="/" element={<Login/>}/>
+          
+        <Route path="/signup" element={<Signup/>}/>
+          
+        <Route path="/dashboard" element={<Dashboard/>}/>
+            
+      </Routes>
     </BrowserRouter>
   );
 }

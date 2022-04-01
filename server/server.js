@@ -1,39 +1,19 @@
-const express = require('express');
-const session = require('express-session');
-const path = require('path');
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import router from "./routes/index.js";
 
+const PORT = 5000;
+
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3001;
-
-const sequelize = require('./config/Database');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
-
-app.use(session(sess));
-
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
-
+ 
+app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
+app.use(cookieParser());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(router);
+ 
+app.listen(`${PORT}`, ()=> console.log(`Server running at port ${PORT}`));
 
-app.use(require('./routes'));
 
-sequelize.sync({ force: true }).then(() => {
-    app.listen(PORT, () => {
-      console.log(`App listening on port ${PORT}!`);
-    });
-  });
