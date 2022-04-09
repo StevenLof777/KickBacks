@@ -5,13 +5,15 @@ import Dashboard from "./pages/Profile/Dashboard";
 import Login from "./pages/Login/Login";
 import Navbar from "./pages/Profile/Navbar.js";
 import Signup from "./pages/Signup/Signup";
+import Home from './pages/Home/Home.jsx';
 
 function App() {
   return (
     <BrowserRouter>
     <Navbar/>
       <Routes>
-        <Route exact path="/" element={<Login/>}/>
+        {/* <Route exact path="/" element={<Login/>}/> */}
+        <Route exact path="/" element={<Home/>}/>
           
         <Route path="/signup" element={<Signup/>}/>
           

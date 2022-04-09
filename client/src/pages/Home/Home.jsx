@@ -1,10 +1,16 @@
+import { Container } from "react-bootstrap";
+import Banner from '../../../public/images/'
+
 const Home = () => {
     return(
         <>
-        <h1>
-         Home    
-        </h1> 
-    </>
+            <Container>
+                <h1>
+                    Home
+                </h1>
+                <img src={Banner}/>
+            </Container>
+        </>
     )
 
 }
