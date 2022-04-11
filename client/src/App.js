@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Navbar from "./pages/Profile/Navbar.js";
 import Signup from "./pages/Signup/Signup";
 import Home from './pages/Home/Home.jsx';
+import Products from './components/Products/Products.jsx'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         {/* <Route exact path="/" element={<Login/>}/> */}
         <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/product/:slug" element={<Products/>}/>
           
         <Route path="/signup" element={<Signup/>}/>
           
