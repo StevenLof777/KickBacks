@@ -1,18 +1,17 @@
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import {Col, Row } from 'react-bootstrap';
+import {Col, Row, Container } from 'react-bootstrap';
 import Product from '../../components/Products/Product/Product.js';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
-// import data from '../data';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case FETCH_REQUEST:
+    case 'FETCH_REQUEST':
       return { ...state, loading: true };
-    case FETCH_SUCCESS:
+    case 'FETCH_SUCCESS':
       return { ...state, products: action.payload, loading: false };
-    case FETCH_FAIL:
+    case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
@@ -49,13 +48,16 @@ function HomeScreen() {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          <Row>
+          <Container>
+                      <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}
           </Row>
+          </Container>
+
         )}
       </div>
     </div>
