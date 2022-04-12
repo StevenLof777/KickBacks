@@ -8,6 +8,7 @@ import Navigation from './components/NavBar/Navigation'
 // import Signup from "./pages/Signup/Signup";
 import Home from './pages/Home/Home.js';
 import Products from './components/Products/Products.js'
+import Cart from './pages/Cart/Cart.js'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/product/:slug" element={<Products />} />
           <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
     </BrowserRouter>
   );
