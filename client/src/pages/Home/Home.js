@@ -1,8 +1,7 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Col, Row } from 'react-bootstrap';
 import Product from '../../components/Products/Product/Product.js';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 // import data from '../data';
@@ -29,12 +28,12 @@ function HomeScreen() {
   // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      dispatch({ type: 'FETCH_REQUEST' });
+      dispatch({ type: FETCH_REQUEST });
       try {
         const result = await axios.get('/api/products');
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        dispatch({ type: FETCH_SUCCESS, payload: result.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: FETCH_FAIL, payload: err.message });
       }
 
       // setProducts(result.data);
