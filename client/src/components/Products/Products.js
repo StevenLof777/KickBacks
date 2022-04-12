@@ -3,8 +3,11 @@ import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Row, Col, ListGroup, Badge, Container, Button, Card } from 'react-bootstrap';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
+import Spinner from '../Animations/Spinner'
+import AlertBox from '../Animations/AlertBox'
 import Rating from './Product/Rating.js';
 import {Helmet} from 'react-helmet-async'
+import { getError } from '../../utils.js';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -37,18 +40,18 @@ function ProductScreen() {
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: FETCH_SUCCESS, payload: result.data });
       } catch (err) {
-        dispatch({ type: FETCH_FAIL, payload: err.message });
+        dispatch({ type: FETCH_FAIL, payload: getError(err) });
       }
-
-      // setProducts(result.data);
     };
     fetchData();
   }, [slug]);
 
   return loading ? (
-    <>loading...</>
+    <Container>
+      <Spinner/>
+    </Container>
     ) : error ? (
-    <>{error}</>
+      <Container><AlertBox variant='danger'>{error}</AlertBox></Container>
     ) : (
       <Container>
     <>

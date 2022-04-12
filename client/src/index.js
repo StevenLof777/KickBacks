@@ -3,16 +3,18 @@ import React from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import "bulma/css/bulma.css";
+import {StoreProvider} from './Store.js'
 import axios from "axios";
  
 axios.defaults.withCredentials = true;
  
 ReactDOM.render(
   <React.StrictMode>
-    <HelmetProvider>
-    <App />
-    </HelmetProvider>
+    <StoreProvider>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>  
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
