@@ -1,13 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useContext } from 'react';
 import axios from 'axios';
 import { Row, Col, ListGroup, Badge, Container, Button, Card } from 'react-bootstrap';
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL, CART_ADD_ITEM } from '../../constants/actionTypes.js';
 import Spinner from '../Animations/Spinner'
 import AlertBox from '../Animations/AlertBox'
 import Rating from './Product/Rating.js';
 import {Helmet} from 'react-helmet-async'
 import { getError } from '../../utils.js';
+import { Store } from '../../Store.js'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -46,12 +47,22 @@ function ProductScreen() {
     fetchData();
   }, [slug]);
 
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: CART_ADD_ITEM,
+      payload: { ...product, quantity: 1 },
+    });
+  };
+
   return loading ? (
     <Container>
       <Spinner/>
     </Container>
     ) : error ? (
-      <Container><AlertBox variant='danger'>{error}</AlertBox></Container>
+      <Container>
+        <AlertBox variant='danger'>{error}</AlertBox>
+      </Container>
     ) : (
       <Container>
     <>
@@ -110,7 +121,7 @@ function ProductScreen() {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button variant="primary">Add to Cart</Button>
+                      <Button variant="primary" onClick={addToCartHandler}>Add to Cart</Button>
                     </div>
                   </ListGroup.Item>
                 )}

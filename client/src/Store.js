@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import CART_ADD_ITEM from './constants/actionTypes'
+import {CART_ADD_ITEM} from './constants/actionTypes'
 
 export const Store = createContext();
 
