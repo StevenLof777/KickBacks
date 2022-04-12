@@ -1,10 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { Row, Col, ListGroup } from 'react-bootstrap';
+import { Row, Col, ListGroup, Badge, Container } from 'react-bootstrap';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 import Rating from './Product/Rating.js';
-import { Container } from 'react-bootstrap';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -72,7 +71,18 @@ function ProductScreen() {
                   numReviews={product.numReviews}
                 />
               </ListGroup.Item>
-
+              <ListGroup.Item>
+                <Row> 
+                <Col>Status:</Col>
+                    <Col>
+                      {product.countInStock > 0 ? (
+                        <Badge bg="success">In Stock</Badge>
+                      ) : (
+                        <Badge bg="danger">Out of Stock</Badge>
+                      )}
+                    </Col>
+                </Row>
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col md={3}></Col>
