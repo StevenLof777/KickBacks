@@ -4,15 +4,16 @@ import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../../components/Products/Product/Product.js';
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 // import data from '../data';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FETCH_REQUEST':
+    case FETCH_REQUEST:
       return { ...state, loading: true };
-    case 'FETCH_SUCCESS':
+    case FETCH_SUCCESS:
       return { ...state, products: action.payload, loading: false };
-    case 'FETCH_FAIL':
+    case FETCH_FAIL:
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
