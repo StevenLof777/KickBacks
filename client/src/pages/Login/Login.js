@@ -31,7 +31,7 @@ const Login = () => {
  
     return (
         <Container className='small-container'>
-            <Helmet><title>Login-</title></Helmet>
+            <Helmet><title>Login</title></Helmet>
         <Form>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
