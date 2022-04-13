@@ -69,7 +69,7 @@ const Signup = () => {
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group className="mb-3" controlId="formBasicFirstName">
+        {/* <Form.Group className="mb-3" controlId="formBasicFirstName">
             <Form.Label>First name</Form.Label>
             <Form.Control 
             type="firstName" 
@@ -88,7 +88,7 @@ const Signup = () => {
             onChange={handleChangeLN}
             required
             />
-        </Form.Group>
+        </Form.Group> */}
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -99,9 +99,6 @@ const Signup = () => {
             // value={formData.email}
             required
             />
-            <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-            </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

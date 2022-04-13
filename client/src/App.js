@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 // import Dashboard from "./pages/Profile/Dashboard";
-// import Login from "./pages/Login/Login";
+import Login from "./pages/Login/Login";
 // import Navbar from "./pages/Profile/Navbar.js";
 import Navigation from './components/NavBar/Navigation'
 import Signup from "./pages/Signup/Signup";
@@ -19,6 +19,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/signup' element={<Signup/>}></Route>
+          <Route path='/login' element={<Login/>}></Route>
+
         </Routes>
     </BrowserRouter>
   );
