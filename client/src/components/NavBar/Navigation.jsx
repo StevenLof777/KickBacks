@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Badge, Container } from "react-bootstrap"
-import { CART_ADD_ITEM } from "../../constants/actionTypes";
 import { Store } from "../../Store";
 import './styles.css';
 

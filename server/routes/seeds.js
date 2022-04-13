@@ -1,7 +1,26 @@
 import express from 'express';
-import Product from '../models/products.js';
+import Product from '../models/Products.js';
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs'
 
 const data = {
+  users: [
+    {
+      firstName: 'John',
+      // name: 'John',
+      lastName: 'Doe',
+      email: 'admin@email.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      firstName: 'John',
+      lastName: 'Smith',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       name: 'Nike Slim shirt',
@@ -59,7 +78,9 @@ const seedRouter = express.Router();
 seedRouter.get('/', async (req, res) => {
   await Product.remove({});
   const createdProducts = await Product.insertMany(data.products);
-  res.send({ createdProducts });
+  await User.remove({});
+  const createdUsers = await User.insertMany(data.users);
+  res.send({ createdProducts, createdUsers });
 });
 
 export default seedRouter;
