@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import seeds from './routes/seeds.js'
-import productRouter from './routes/products.js';
+import product from './routes/products.js';
+import users from './routes/users.js';
 
 dotenv.config();
 
@@ -16,8 +17,17 @@ mongoose
   });
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 app.use('/api/seed', seeds);
-app.use('/api/products', productRouter);
+app.use('/api/products', product);
+app.use('/api/users', users);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({message: err.message});
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

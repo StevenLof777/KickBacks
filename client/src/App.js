@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 // import Dashboard from "./pages/Profile/Dashboard";
 import Login from "./pages/Login/Login";
 // import Navbar from "./pages/Profile/Navbar.js";
+import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation'
 import Signup from "./pages/Signup/Signup";
 import Home from './pages/Home/Home.js';
