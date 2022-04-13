@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from 'react-router-dom';

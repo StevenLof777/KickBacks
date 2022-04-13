@@ -7,9 +7,10 @@ import Login from "./pages/Login/Login";
 import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation'
 import Signup from "./pages/Signup/Signup";
-import Home from './pages/Home/Home.js';
+import Home from './pages/Home/Home.jsx';
 import Products from './components/Products/Products.js'
-import Cart from './pages/Cart/Cart.js'
+import Cart from './pages/Cart/Cart.jsx'
+import Shipping from '../src/pages/Shipping/Shipping.jsx'
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path='/signup' element={<Signup/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
-
+          <Route path='/shipping' element={<Shipping/>}></Route>
+          
         </Routes>
     </BrowserRouter>
   );

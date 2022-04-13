@@ -24,7 +24,7 @@ const reducer = (state, action) => {
 };
 
 
-function ProductScreen() {
+function Product() {
   const params = useParams();
   const {slug} = params;
   const navigate = useNavigate();
@@ -143,4 +143,4 @@ function ProductScreen() {
     </Container>
   )
 }
-export default ProductScreen;
+export default Product;

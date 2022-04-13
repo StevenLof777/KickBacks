@@ -20,7 +20,7 @@ const reducer = (state, action) => {
   }
 };
 
-function HomeScreen() {
+function Home() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
@@ -66,4 +66,4 @@ function HomeScreen() {
     </div>
   );
 }
-export default HomeScreen;
+export default Home;
