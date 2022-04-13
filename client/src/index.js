@@ -1,29 +1,20 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import ReactDOM from 'react-dom';
 import App from './App';
-import "bulma/css/bulma.css";
+import {StoreProvider} from './Store.js'
 import axios from "axios";
  
 axios.defaults.withCredentials = true;
  
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StoreProvider>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>  
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

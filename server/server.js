@@ -1,19 +1,28 @@
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import router from "./routes/index.js";
-
-const PORT = 5000;
-
-dotenv.config();
+import express from 'express';
+import data from './data.js';
 const app = express();
- 
-app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
-app.use(cookieParser());
-app.use(express.json());
-app.use(router);
- 
-app.listen(`${PORT}`, ()=> console.log(`Server running at port ${PORT}`));
 
+app.get('/api/products', (req, res) => {
+  res.send(data.products);
+});
+app.get('/api/products/slug/:slug', (req, res) => {
+  const product = data.products.find((x) => x.slug === req.params.slug);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
+app.get('/api/products/:id', (req, res) => {
+  const product = data.products.find((x) => x._id === req.params.id);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: 'Product Not Found' });
+  }
+});
 
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`serve at http://localhost:${port}`);
+});
