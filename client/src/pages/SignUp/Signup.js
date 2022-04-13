@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {Form, Button, Alert, Container} from 'react-bootstrap';
 // import { useNavigate } from 'react-router-dom';
 import AuthService from '../../actions/auth';
-import {signup} from '../../api/index'
+// import {signup} from '../../api/index'
 import styles from './styles.css';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '' };
@@ -11,23 +11,23 @@ const Signup = () => {
     const [formData, setFormData] = useState(initialState);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleChangeFN = (e) => {
-      e.preventDefault();
-      const { value } = e.target;
-      setFormData({
-        ...formData,
-        firstName: value,
-      });
-    };
+    // const handleChangeFN = (e) => {
+    //   e.preventDefault();
+    //   const { value } = e.target;
+    //   setFormData({
+    //     ...formData,
+    //     firstName: value,
+    //   });
+    // };
   
-    const handleChangeLN = (e) => {
-      e.preventDefault();
-      const { value } = e.target;
-      setFormData({
-        ...formData,
-        lastName: value,
-      });
-    };
+    // const handleChangeLN = (e) => {
+    //   e.preventDefault();
+    //   const { value } = e.target;
+    //   setFormData({
+    //     ...formData,
+    //     lastName: value,
+    //   });
+    // };
   
     const handleChangeEmail = (e) => {
       e.preventDefault();
@@ -50,15 +50,15 @@ const Signup = () => {
     const handleFormSubmit = async (e) => {
       e.preventDefault();
       console.log(formData)
-      try {
-        const { data } = await signup({
-          variables: { ...formData },
-        });
+      // try {
+      //   const { data } = await signup({
+      //     variables: { ...formData },
+      //   });
 
-        AuthService.login(data.signup.token);
-      } catch (e) {
-        console.error(e);
-      }
+      //   AuthService.login(data.signup.token);
+      // } catch (e) {
+      //   console.error(e);
+      // }
     };
     
 

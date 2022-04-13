@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Badge } from "react-bootstrap"
+import { Navbar, Nav, Badge, Container } from "react-bootstrap"
 import { CART_ADD_ITEM } from "../../constants/actionTypes";
 import { Store } from "../../Store";
 import './styles.css';
@@ -10,7 +10,8 @@ const Navigation = () => {
     const {cart} = state;
     return(
 
-      <Navbar expand="lg" bg="light" className="navContainer">
+            <Navbar expand="lg" bg="light" className="navContainer">
+                  <Container>
         <Navbar.Brand href="#home">KickBacks</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -29,9 +30,8 @@ const Navigation = () => {
               </Nav>
           </Nav>
         </Navbar.Collapse>
+        </Container>
       </Navbar>
-
-
     );
 }
 export default Navigation

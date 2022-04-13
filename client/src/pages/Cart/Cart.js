@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { Store } from '../../Store';
 import { Helmet } from 'react-helmet-async';
-import {Row, Col, ListGroup, Button, Card} from 'react-bootstrap';
+import {Row, Col, ListGroup, Button, Card, Container} from 'react-bootstrap';
 import AlertBox from '../../components/Animations/AlertBox';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CART_ADD_ITEM, REMOVE_CART_ITEM } from '../../constants/actionTypes';
 
-export default function CartScreen() {
+export default function Cart() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const navigate = useNavigate();
   const {
@@ -34,11 +34,11 @@ export default function CartScreen() {
   }
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping')
+    navigate('/login?redirect=/shipping')
   }
 
   return (
-    <div>
+    <Container>
       <Helmet>
         <title>Shopping Cart</title>
       </Helmet>
@@ -109,7 +109,7 @@ export default function CartScreen() {
                     <Button
                       type="button"
                       variant="primary"
-                      onClick={checkoutHandler()}
+                      onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >
                       Proceed to Checkout
@@ -121,6 +121,6 @@ export default function CartScreen() {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 }
