@@ -5,6 +5,7 @@ import seeds from './routes/seeds.js'
 import product from './routes/products.js';
 import users from './routes/users.js';
 import orders from './routes/orders.js';
+import path from 'path'
 
 dotenv.config();
 
@@ -30,6 +31,11 @@ app.use('/api/seed', seeds);
 app.use('/api/products', product);
 app.use('/api/users', users);
 app.use('/api/orders', orders);
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res)=> res.sendFile(path.join(__dirname,'client/build/index.html')));
 
 app.use((err, req, res, next) => {
   res.status(500).send({message: err.message});

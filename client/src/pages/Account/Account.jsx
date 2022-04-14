@@ -1,5 +1,5 @@
 import { useContext, useReducer, useState } from 'react';
-import { UPDATE_FAIL, UPDATE_REQUEST, UPDATE_SUCCESS, LOGIN, FETCH_FAIL, DELETE_ACCOUNT } from '../../constants/actionTypes';
+import { UPDATE_FAIL, UPDATE_REQUEST, UPDATE_SUCCESS, LOGIN, FETCH_FAIL } from '../../constants/actionTypes';
 import { Helmet } from 'react-helmet-async';
 import {Container, Form, Button} from 'react-bootstrap';
 import { Store } from '../../Store';
@@ -63,34 +63,34 @@ export default function Account() {
     }
   };
 
-  const deleteAccount = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.delete(
-        '/api/users/account',
-        {
-          firstName,
-          lastName,
-          email,
-          password,
-        },
-        {
-          headers: { Authorization: `Bearer ${userInfo.token}` },
-        }
-      );
-      dispatch({
-        type: DELETE_ACCOUNT,
-      });
-      ctxDispatch({ type: LOGIN, payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      toast.success('User updated successfully');
-    } catch (err) {
-      dispatch({
-        type: FETCH_FAIL,
-      });
-      toast.error(getError(err));
-    }
-  };
+  // const deleteAccount = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data } = await axios.delete(
+  //       '/api/users/account',
+  //       {
+  //         firstName,
+  //         lastName,
+  //         email,
+  //         password,
+  //       },
+  //       {
+  //         headers: { Authorization: `Bearer ${userInfo.token}` },
+  //       }
+  //     );
+  //     dispatch({
+  //       type: DELETE,
+  //     });
+  //     ctxDispatch({ type: LOGIN, payload: data });
+  //     localStorage.setItem('userInfo', JSON.stringify(data));
+  //     toast.success('User updated successfully');
+  //   } catch (err) {
+  //     dispatch({
+  //       type: FETCH_FAIL,
+  //     });
+  //     toast.error(getError(err));
+  //   }
+  // };
 
   return (
     <Container className='small-container'>
