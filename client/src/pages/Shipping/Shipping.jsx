@@ -15,11 +15,11 @@ export default function Shipping() {
     cart: { shippingAddress },
   } = state;
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [zipCode, setZipCode] = useState('');
+  const [firstName, setFirstName] = useState(shippingAddress.firstName || '');
+  const [lastName, setLastName] = useState(shippingAddress.lastName || '');
+  const [address, setAddress] = useState(shippingAddress.address || '');
+  const [city, setCity] = useState(shippingAddress.city || '');
+  const [zipCode, setZipCode] = useState(shippingAddress.zipCode || ''); 
   
   useEffect(() => {
     if (!userInfo) {
@@ -30,12 +30,34 @@ export default function Shipping() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+    ctxDispatch({
+      type: SAVE_SHIPPING_ADDRESS,
+      payload: {
+        firstName,
+        lastName,
+        address,
+        city,
+        zipCode,
+        country,
+      },
+    });
+    localStorage.setItem(
+      'shippingAddress',
+      JSON.stringify({
+        firstName,
+        lastName,
+        address,
+        city,
+        zipCode,
+        country,
+      })
+    );
+    navigate('/payment');
   };
   return (
     <div>
       <Helmet>
-        <title>Shipping</title>
+        <title>Shipping Address</title>
       </Helmet>
       <Container className="small-container">
         <h1 className="my-3">Shipping Address</h1>
