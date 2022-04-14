@@ -12,6 +12,7 @@ import Products from './components/Products/Products.js'
 import Cart from './pages/Cart/Cart.jsx'
 import Shipping from '../src/pages/Shipping/Shipping.jsx'
 import Payment from '../src/pages/Payment/Payment.jsx'
+import Checkout from '../src/pages/Checkout/Checkout.jsx'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/shipping' element={<Shipping/>}></Route>
           <Route path='/payment' element={<Payment/>}></Route>
+          <Route path='/checkout' element={<Checkout/>}></Route>
         </Routes>
     </BrowserRouter>
   );
