@@ -18,14 +18,15 @@ export default function Shipping() {
   const [lastName, setLastName] = useState(shippingAddress.lastName || '');
   const [address, setAddress] = useState(shippingAddress.address || '');
   const [city, setCity] = useState(shippingAddress.city || '');
-  const [zipCode, setZipCode] = useState(shippingAddress.zipCode || ''); 
+  const [zipCode, setZipCode] = useState(shippingAddress.zipCode || '');
+  const [country, setCountry] = useState(shippingAddress.zipCode || '');
+ 
   
   useEffect(() => {
     if (!userInfo) {
       navigate('/login?redirect=/shipping');
     }
   }, [userInfo, navigate]);
-  const [country, setCountry] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -96,16 +97,14 @@ export default function Shipping() {
           <Form.Group className="mb-3" controlId="number">
             <Form.Label>Zip Code</Form.Label>
             <Form.Control
-              type='number'
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="country">
+          <Form.Group className="mb-3" controlId="name">
             <Form.Label>Country</Form.Label>
             <Form.Control
-              type='name'
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               required

@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import seeds from './routes/seeds.js'
 import product from './routes/products.js';
 import users from './routes/users.js';
+import orders from './routes/orders.js';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/api/seed', seeds);
 app.use('/api/products', product);
 app.use('/api/users', users);
+app.use('/api/orders', orders);
 
 app.use((err, req, res, next) => {
   res.status(500).send({message: err.message});

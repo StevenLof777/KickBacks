@@ -29,7 +29,7 @@ export default function Checkout() {
     loading: false
   });
 
-  const { state, ctxDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
@@ -92,7 +92,7 @@ export default function Checkout() {
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.firstName} {cart.shippingAddress.lastName}<br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
-                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode},
+                {cart.shippingAddress.city}, {cart.shippingAddress.zipCode},
                 {cart.shippingAddress.country}
               </Card.Text>
               <Link to="/shipping">Edit</Link>
@@ -178,8 +178,9 @@ export default function Checkout() {
                     >
                         Checkout
                     </Button>
-                    {loading && <Spinner/>}
+                    
                   </div>
+                  {loading && <Spinner/>}
                 </ListGroup.Item>
               </ListGroup>
             </Card.Body>
