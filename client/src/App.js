@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from "./pages/Login/Login.jsx";
 import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation.jsx'
-import Signup from "./pages/Signup/Signup.jsx";
+import Signup from "./pages/Signup/Signup.js";
 import Home from './pages/Home/Home.jsx';
 import Products from './components/Products/Products.js';
 import Cart from './pages/Cart/Cart.jsx';
