@@ -8,11 +8,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation'
 import Signup from "./pages/Signup/Signup";
 import Home from './pages/Home/Home.jsx';
-import Products from './components/Products/Products.js'
-import Cart from './pages/Cart/Cart.jsx'
-import Shipping from '../src/pages/Shipping/Shipping.jsx'
-import Payment from '../src/pages/Payment/Payment.jsx'
-import Checkout from '../src/pages/Checkout/Checkout.jsx'
+import Products from './components/Products/Products.js';
+import Cart from './pages/Cart/Cart.jsx';
+import Shipping from '../src/pages/Shipping/Shipping.jsx';
+import Payment from '../src/pages/Payment/Payment.jsx';
+import Checkout from '../src/pages/Checkout/Checkout.jsx';
+import Order from '../src/pages/Order/Order.jsx'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/shipping' element={<Shipping/>}></Route>
           <Route path='/payment' element={<Payment/>}></Route>
           <Route path='/checkout' element={<Checkout/>}></Route>
+          <Route path='/order/:id' element={<Order/>}></Route>
         </Routes>
     </BrowserRouter>
   );

@@ -91,9 +91,7 @@ export default function Checkout() {
               <Card.Title>Shipping</Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.firstName} {cart.shippingAddress.lastName}<br />
-                <strong>Address: </strong> {cart.shippingAddress.address},
-                {cart.shippingAddress.city}, {cart.shippingAddress.zipCode},
-                {cart.shippingAddress.country}
+                <strong>Address: </strong> {cart.shippingAddress.address}, {cart.shippingAddress.city}, {cart.shippingAddress.zipCode}, {cart.shippingAddress.country}
               </Card.Text>
               <Link to="/shipping">Edit</Link>
             </Card.Body>
@@ -162,7 +160,7 @@ export default function Checkout() {
                 <ListGroup.Item>
                   <Row>
                     <Col>
-                      <strong> Order Total</strong>
+                      <strong>Order Total</strong>
                     </Col>
                     <Col>
                       <strong>${cart.totalPrice.toFixed(2)}</strong>
