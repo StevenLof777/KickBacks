@@ -12,3 +12,7 @@ export const SUCCESS = 'SUCCESS'
 export const REQUEST = 'REQUEST';
 export const FAIL = 'FAIL';
 export const CLEAR_CART = 'CLEAR_CART';
+export const PAY_REQUEST = 'PAY_REQUEST';
+export const PAY_SUCCESS = 'PAY_SUCCESS';
+export const PAY_FAIL = 'PAY_FAIL';
+export const PAY_RESET= 'PAY_RESET';
