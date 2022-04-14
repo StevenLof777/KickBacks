@@ -1,123 +1,109 @@
-import { useState } from 'react';
-import {Form, Button, Alert, Container} from 'react-bootstrap';
-// import { useNavigate } from 'react-router-dom';
-import AuthService from '../../actions/auth';
-// import {signup} from '../../api/index'
+import { useState, useEffect, useContext } from 'react';
+import {SIGNUP} from '../../constants/actionTypes';
+import { Container, Form, Button } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import styles from './styles.css';
+import { getError } from '../../utils';
+import axios from 'axios';
+import { toast } from 'react-toastify'
+import {Store} from '../../Store.js';
+ 
+const Login = () => {
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
 
-const initialState = { firstName: '', lastName: '', email: '', password: '' };
+  const [firstName, setFirstname] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-const Signup = () => {
-    const [formData, setFormData] = useState(initialState);
-    const [showAlert, setShowAlert] = useState(false);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
 
-    // const handleChangeFN = (e) => {
-    //   e.preventDefault();
-    //   const { value } = e.target;
-    //   setFormData({
-    //     ...formData,
-    //     firstName: value,
-    //   });
-    // };
-  
-    // const handleChangeLN = (e) => {
-    //   e.preventDefault();
-    //   const { value } = e.target;
-    //   setFormData({
-    //     ...formData,
-    //     lastName: value,
-    //   });
-    // };
-  
-    const handleChangeEmail = (e) => {
-      e.preventDefault();
-      const { value } = e.target;
-      setFormData({
-        ...formData,
-        email: value,
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if(password !== confirmPassword){return toast.error('Passwords do not match')}
+    try {
+      const { data } = await axios.post('/api/users/signup', {
+        firstName,
+        lastName,
+        email,
+        password,
       });
-    };
-  
-    const handleChangePw = (e) => {
-      e.preventDefault();
-      const { value } = e.target;
-      setFormData({
-        ...formData,
-        password: value,
-      });
-    };
-  
-    const handleFormSubmit = async (e) => {
-      e.preventDefault();
-      console.log(formData)
-      // try {
-      //   const { data } = await signup({
-      //     variables: { ...formData },
-      //   });
+      ctxDispatch({ type: SIGNUP, payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      navigate(redirect || '/');
+    } catch (err) {
+      toast.error(getError(err));
+    }
+  };
 
-      //   AuthService.login(data.signup.token);
-      // } catch (e) {
-      //   console.error(e);
-      // }
-    };
-    
-
-    return(
-      <Container className='small-container'>
-        <Form>
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
-        </Alert>
-
-        {/* <Form.Group className="mb-3" controlId="formBasicFirstName">
-            <Form.Label>First name</Form.Label>
-            <Form.Control 
-            type="firstName" 
-            placeholder="Enter first name" 
-            onChange={handleChangeFN}
-            required
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
+ 
+    return (
+        <Container className="small-container">
+        <Helmet>
+          <title>Sign Up</title>
+        </Helmet>
+        <h1 className="my-3">Sign up</h1>
+        <Form onSubmit={submitHandler}>
+        <Form.Group className="mb-3" controlId="firstName">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              type="firstName"
+              required
+              onChange={(e) => setFirstname(e.target.value)}
             />
-            <Form.Control.Feedback type='invalid'>Required</Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicLastName">
-            <Form.Label>Last name</Form.Label >
-            <Form.Control 
-            type="lastName" 
-            placeholder="Enter last name" 
-            onChange={handleChangeLN}
-            required
+          </Form.Group>
+        <Form.Group className="mb-3" controlId="lastName">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              type="lastName"
+              required
+              onChange={(e) => setLastName(e.target.value)}
             />
-        </Form.Group> */}
-
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control 
-            type="email" 
-            placeholder="Enter email" 
-            onChange={handleChangeEmail}
-            // value={formData.email}
-            required
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              required
+              onChange={(e) => setEmail(e.target.value)}
             />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
-            <Form.Control 
-            type="password" 
-            placeholder="Password" 
-            onChange={handleChangePw}
-            // value={formData.password}
-            required
+            <Form.Control
+              type="password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
             />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" onClick={handleFormSubmit}>
-            Submit
-        </Button>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="confirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              required
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </Form.Group>
+          <div className="mb-3">
+            <Button type="submit">Register</Button>
+          </div>
+          <div className="mb-3">
+            Already have an account? <Link to='/login'>Login</Link>
+          </div>
         </Form>
       </Container>
     )
 }
-
-export default Signup
+ 
+export default Login

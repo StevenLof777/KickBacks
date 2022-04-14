@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { Button, Form, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Store } from '../../Store.js';
-// import CheckoutSteps from '../components/CheckoutSteps';
 import {SAVE_SHIPPING_ADDRESS} from '../../constants/actionTypes.js'
 
 export default function Shipping() {
