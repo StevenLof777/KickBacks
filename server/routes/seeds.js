@@ -51,7 +51,7 @@ const data = {
       slug: 'nike-slim-pant',
       category: 'Pants', 
       image: '/images/p3.jpg',
-      price: 25,
+      price: 1,
       countInStock: 15,
       brand: 'Nike',
       rating: 4.5,

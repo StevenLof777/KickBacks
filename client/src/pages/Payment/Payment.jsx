@@ -5,7 +5,7 @@ import { PAYMENT } from '../../constants/actionTypes';
 import { Button, Form, Container } from 'react-bootstrap';
 import { Store } from '../../Store';
 
-export default function PaymentMethodScreen() {
+export default function PaymentMethod() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {

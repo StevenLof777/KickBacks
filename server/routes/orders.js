@@ -1,10 +1,9 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import Orders from '../models/Orders.js';
+import Orders from '../models/Orders.js'
 import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
-
 orderRouter.post(
   '/',
   isAuth,
@@ -22,6 +21,15 @@ orderRouter.post(
 
     const order = await newOrder.save();
     res.status(201).send({ message: 'New Order Created', order });
+  })
+);
+
+orderRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Orders.find({ user: req.user._id });
+    res.send(orders);
   })
 );
 

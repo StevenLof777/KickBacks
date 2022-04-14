@@ -26,11 +26,11 @@ const Navigation = () => {
         <Container>
         <Navbar.Brand href="#home">KickBacks</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Navbar.Collapse id="basic-navbar-nav ">
+          <Nav className="me-auto ">
             <Nav.Link href='/'>Home</Nav.Link>
-            <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
+            <Nav className="me-auto justify-content-end ">
+                <Link to="/cart" className="nav-link ">
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
