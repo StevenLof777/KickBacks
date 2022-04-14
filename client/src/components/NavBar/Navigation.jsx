@@ -13,10 +13,8 @@ const Navigation = () => {
     const logOutHandler = () => {
       ctxDispatch({ type: LOGOUT });
       localStorage.removeItem('userInfo');
-    }
-
-    const log = () => {
-      console.log(userInfo)
+      localStorage.removeItem('shippingAddress');
+      localStorage.removeItem('shippingAddress');
     }
 
     return(

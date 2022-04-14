@@ -11,6 +11,7 @@ import Home from './pages/Home/Home.jsx';
 import Products from './components/Products/Products.js'
 import Cart from './pages/Cart/Cart.jsx'
 import Shipping from '../src/pages/Shipping/Shipping.jsx'
+import Payment from '../src/pages/Payment/Payment.jsx'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path='/signup' element={<Signup/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/shipping' element={<Shipping/>}></Route>
-          
+          <Route path='/payment' element={<Payment/>}></Route>
         </Routes>
     </BrowserRouter>
   );

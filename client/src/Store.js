@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import {CART_ADD_ITEM, REMOVE_CART_ITEM, LOGOUT, LOGIN, SAVE_SHIPPING_ADDRESS} from './constants/actionTypes'
+import {CART_ADD_ITEM, REMOVE_CART_ITEM, LOGOUT, LOGIN, SAVE_SHIPPING_ADDRESS, PAYMENT} from './constants/actionTypes'
 
 export const Store = createContext();
 
@@ -15,6 +15,9 @@ const initialState = {
     shippingAddress: localStorage.getItem('shippingAddress')
     ? JSON.parse(localStorage.getItem('shippingAddress'))
     : [],
+    payment: localStorage.getItem('payment')
+    ? JSON.parse(localStorage.getItem('payment'))
+    : ''
   },
 };
 function reducer(state, action) {
@@ -51,6 +54,14 @@ function reducer(state, action) {
             cart: {
               ...state.cart,
               shippingAddress: action.payload,
+            },
+          };
+        case PAYMENT:
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              payment: action.payload,
             },
           };
       default:
