@@ -1,9 +1,7 @@
 import React from 'react';
 import './index.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-// import Dashboard from "./pages/Profile/Dashboard";
 import Login from "./pages/Login/Login";
-// import Navbar from "./pages/Profile/Navbar.js";
 import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation'
 import Signup from "./pages/Signup/Signup";
@@ -15,6 +13,7 @@ import Payment from '../src/pages/Payment/Payment.jsx';
 import Checkout from '../src/pages/Checkout/Checkout.jsx';
 import Order from '../src/pages/Order/Order.jsx';
 import OrderHistory from './pages/OrderHistory/OrderHistory.jsx';
+import Account from './pages/Account/Account.jsx';
 
 function App() {
   return (
@@ -31,6 +30,7 @@ function App() {
           <Route path='/checkout' element={<Checkout/>}></Route>
           <Route path='/order/:id' element={<Order/>}></Route>
           <Route path='/orderhistory' element={<OrderHistory/>}></Route>
+          <Route path='/account' element={<Account/>}></Route>
         </Routes>
     </BrowserRouter>
   );
