@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import {Row, Col, ListGroup, Card, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FETCH_SUCCESS, FETCH_REQUEST, FETCH_FAIL, PAY_FAIL, PAY_REQUEST, PAY_SUCCESS, PAY_RESET } from '../../constants/actionTypes';
+import { FETCH_SUCCESS, FETCH_REQUEST, FETCH_FAIL, PAY_FAIL, PAY_REQUEST, PAY_SUCCESS, PAY_RESET } from '../../constants/actionTypes.js';
 import Spinner from '../../components/Animations/Spinner.js';
 import AlertBox from '../../components/Animations/AlertBox.js';
-import { Store } from '../../Store';
-import { getError } from '../../utils';
+import { Store } from '../../Store.js';
+import { getError } from '../../utils.js';
 import {toast} from 'react-toastify';
 
 function reducer(state, action) {

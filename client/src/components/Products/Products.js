@@ -3,8 +3,8 @@ import { useEffect, useReducer, useContext } from 'react';
 import axios from 'axios';
 import { Row, Col, ListGroup, Badge, Container, Button, Card } from 'react-bootstrap';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL, CART_ADD_ITEM } from '../../constants/actionTypes.js';
-import Spinner from '../Animations/Spinner'
-import AlertBox from '../Animations/AlertBox'
+import Spinner from '../Animations/Spinner.js'
+import AlertBox from '../Animations/AlertBox.js'
 import Rating from './Product/Rating.js';
 import {Helmet} from 'react-helmet-async'
 import { getError } from '../../utils.js';

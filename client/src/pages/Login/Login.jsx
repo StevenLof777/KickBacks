@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
-import {LOGIN} from '../../constants/actionTypes';
+import {LOGIN} from '../../constants/actionTypes.js';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import styles from './styles.css';
-import { getError } from '../../utils';
+import { getError } from '../../utils.js';
 import axios from 'axios';
 import { toast } from 'react-toastify'
 import {Store} from '../../Store.js';

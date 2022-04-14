@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Rating from './Rating'
 import axios from 'axios';
-import { CART_ADD_ITEM } from '../../../constants/actionTypes';
+import { CART_ADD_ITEM } from '../../../constants/actionTypes.js';
 import { useContext } from 'react';
-import { Store } from '../../../Store';
+import { Store } from '../../../Store.js';
 
 function Product(props) {
   const { product } = props;

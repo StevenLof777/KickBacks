@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { Store } from '../../Store';
+import { Store } from '../../Store.js';
 import { Helmet } from 'react-helmet-async';
 import {Row, Col, ListGroup, Button, Card, Container} from 'react-bootstrap';
 import AlertBox from '../../components/Animations/AlertBox';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { CART_ADD_ITEM, REMOVE_CART_ITEM } from '../../constants/actionTypes';
+import { CART_ADD_ITEM, REMOVE_CART_ITEM } from '../../constants/actionTypes.js';
 
 export default function Cart() {
   const { state, dispatch: ctxDispatch } = useContext(Store);

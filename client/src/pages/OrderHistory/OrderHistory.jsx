@@ -1,10 +1,10 @@
 import { useContext, useEffect, useReducer } from 'react';
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes';
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Spinner from '../../components/Animations/Spinner';
-import AlertBox from '../../components/Animations/AlertBox';
+import Spinner from '../../components/Animations/Spinner.js';
+import AlertBox from '../../components/Animations/AlertBox.js';
 import { Store } from '../../Store';
 import { getError } from '../../utils';
 import {Button, Table, Container} from 'react-bootstrap';

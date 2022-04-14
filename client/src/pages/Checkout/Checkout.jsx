@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {Row, Col, Card, Button, ListGroup, Container} from 'react-bootstrap';
 import {REQUEST, SUCCESS, FAIL, CLEAR_CART} from '../../constants/actionTypes.js';
-import { Store } from '../../Store';
+import { Store } from '../../Store.js';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils.js';
 import Spinner from '../../components/Animations/Spinner.js';

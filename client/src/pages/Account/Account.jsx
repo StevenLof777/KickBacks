@@ -1,10 +1,10 @@
 import { useContext, useReducer, useState } from 'react';
-import { UPDATE_FAIL, UPDATE_REQUEST, UPDATE_SUCCESS, LOGIN, FETCH_FAIL } from '../../constants/actionTypes';
+import { UPDATE_FAIL, UPDATE_REQUEST, UPDATE_SUCCESS, LOGIN, FETCH_FAIL } from '../../constants/actionTypes.js';
 import { Helmet } from 'react-helmet-async';
 import {Container, Form, Button} from 'react-bootstrap';
-import { Store } from '../../Store';
+import { Store } from '../../Store.js';
 import { toast } from 'react-toastify';
-import { getError } from '../../utils';
+import { getError } from '../../utils.js';
 import axios from 'axios';
 
 const reducer = (state, action) => {

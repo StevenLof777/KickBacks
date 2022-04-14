@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Badge, Container, NavDropdown } from "react-bootstrap"
 import {ToastContainer} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import { Store } from "../../Store";
-import {LOGOUT} from '../../constants/actionTypes';
+import { Store } from "../../Store.js";
+import {LOGOUT} from '../../constants/actionTypes.js';
 import './styles.css';
 
 const Navigation = () => {

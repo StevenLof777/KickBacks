@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { PAYMENT } from '../../constants/actionTypes';
 import { Button, Form, Container } from 'react-bootstrap';
-import { Store } from '../../Store';
+import { Store } from '../../Store.js';
 
 export default function PaymentMethod() {
   const navigate = useNavigate();
