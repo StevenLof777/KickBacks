@@ -93,9 +93,10 @@ export default function Shipping() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="zipCode">
-            <Form.Label>zip Code</Form.Label>
+          <Form.Group className="mb-3" controlId="number">
+            <Form.Label>Zip Code</Form.Label>
             <Form.Control
+              type='number'
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
               required
@@ -104,6 +105,7 @@ export default function Shipping() {
           <Form.Group className="mb-3" controlId="country">
             <Form.Label>Country</Form.Label>
             <Form.Control
+              type='name'
               value={country}
               onChange={(e) => setCountry(e.target.value)}
               required

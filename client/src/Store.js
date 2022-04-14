@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-import {CART_ADD_ITEM, REMOVE_CART_ITEM, LOGOUT, LOGIN, SAVE_SHIPPING_ADDRESS, PAYMENT} from './constants/actionTypes'
+import {CART_ADD_ITEM, REMOVE_CART_ITEM, LOGOUT, LOGIN, SAVE_SHIPPING_ADDRESS, PAYMENT, CLEAR_CART} from './constants/actionTypes'
 
 export const Store = createContext();
 
@@ -62,6 +62,14 @@ function reducer(state, action) {
             cart: {
               ...state.cart,
               payment: action.payload,
+            },
+          };
+        case CLEAR_CART:
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              cartItems: []
             },
           };
       default:

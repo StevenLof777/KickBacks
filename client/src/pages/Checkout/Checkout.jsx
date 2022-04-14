@@ -1,13 +1,36 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import {Row, Col, Card, Button, ListGroup, Container} from 'react-bootstrap';
+import {REQUEST, SUCCESS, FAIL, CLEAR_CART} from '../../constants/actionTypes.js';
 import { Store } from '../../Store';
+import { toast } from 'react-toastify';
+import { getError } from '../../utils.js';
+import Spinner from '../../components/Animations/Spinner.js';
+
+const reducer = (state, action) => {
+  switch(action.type){
+    case REQUEST:
+      return {...state, loading: true}; 
+    case SUCCESS:
+      return {...state, loading: true}; 
+    case FAIL:
+      return {...state, loading: true}; 
+      default:
+        return state;
+  }
+}
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const { state } = useContext(Store);
-  const { cart } = state;
+
+  const [{ loading }, dispatch] = useReducer(reducer, {
+    loading: false
+  });
+
+  const { state, ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
 
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.2345 => 123.23
   cart.itemsPrice = round2(
@@ -17,7 +40,37 @@ export default function Checkout() {
   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
-  const checkoutHandler = async () => {};
+  const checkoutHandler = async () => {
+
+    try {
+      dispatch({ type: REQUEST });
+
+      const { data } = await axios.post(
+        '/api/orders',
+        {
+          orderItems: cart.cartItems,
+          shippingAddress: cart.shippingAddress,
+          payment: cart.payment,
+          itemsPrice: cart.itemsPrice,
+          shippingPrice: cart.shippingPrice,
+          taxPrice: cart.taxPrice,
+          totalPrice: cart.totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
+      ctxDispatch({ type: CLEAR_CART });
+      dispatch({ type: SUCCESS });
+      localStorage.removeItem('cartItems');
+      navigate(`/order/${data.order._id}`);
+    } catch (err) {
+      dispatch({ type: FAIL });
+      toast.error(getError(err));
+    }
+  };
 
   useEffect(() => {
     if (!cart.payment) {
@@ -125,6 +178,7 @@ export default function Checkout() {
                     >
                         Checkout
                     </Button>
+                    {loading && <Spinner/>}
                   </div>
                 </ListGroup.Item>
               </ListGroup>
