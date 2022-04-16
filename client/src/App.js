@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from "./pages/Login/Login.jsx";
 import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation.jsx'
-// import Signup from "./pages/Signup/Signup.js";
+import Signup from "./pages/Signup/Signup.js";
 import Home from './pages/Home/Home.jsx';
 import Products from './components/Products/Products.js';
 import Cart from './pages/Cart/Cart.jsx';
@@ -23,7 +23,7 @@ function App() {
           <Route path="/product/:slug" element={<Products />} />
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          {/* <Route path='/signup' element={<Signup/>}></Route> */}
+          <Route path='/signup' element={<Signup/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/shipping' element={<Shipping/>}></Route>
           <Route path='/payment' element={<Payment/>}></Route>

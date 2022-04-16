@@ -1,5 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&display=swap');
+
 .navContainer {
-    /* max-width: 90%; */
-    /* background-color: rgb(55, 68, 255); */
-    color: white;
+    border-bottom: none;
+    /* background-color: pink; */
+    border-width: 1px;
+    border-color: none;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0rem;
 }
+
+.brand {
+    max-height: 3rem;
+} 
+
+.brand-title {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+}
+
+.nav-text{
+    font-size: 1rem;
+}
+
+.search {
+    background-color: transparent;
+    border: none;
+    color: gray;
+    border-radius: 0%;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.cart{
+    font-size: 1.5rem;
+
+}
+
+.form-control{
+    border-radius: 0%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 0%;
+    margin-left: 1rem;
+}
+
+.cart-badge{
+    margin-right: .2rem;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;  
+ }
+ ::-moz-placeholder {
+    font-style: italic;  
+ }
+ :-ms-input-placeholder {  
+    font-style: italic; 
+ }
