@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&display=swap');
 
 .navContainer {
-    border-bottom: none;
-    /* background-color: pink; */
-    border-width: 1px;
-    border-color: none;
+    /* border-bottom: solid; */
+    background-color: white;
+    border-width: 2px;
+    border-color: var(--beige);
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 0rem;
+    position: fixed;
+    top: 0;
 }
 
 .brand {

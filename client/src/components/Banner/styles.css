@@ -1,0 +1,48 @@
+.banner-img{
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+    margin-right: 0;
+    
+}
+
+.banner{
+    background-color: var(--blue);
+    padding-top: 84px;
+
+}
+
+.banner-right{
+    background-color: var(--blue);
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-left{
+    /* background-color: var(--blue); */
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0;
+}
+
+.banner-right-text{
+    font-family: var(--ff-Staatliches);
+    color: var(--beige);
+    text-align: center;
+    font-size: 4rem;
+    flex: 0 0 360px;
+}
+
+.shop-now{
+    color: white;
+    font-family: var(--ff-barlow-condensed);
+    font-size: 3rem;
+}
+
+.shop-now:hover{
+    color: white;
+}

@@ -3,8 +3,9 @@ import axios from 'axios';
 import logger from 'use-reducer-logger';
 import {Col, Row, Container } from 'react-bootstrap';
 import Product from '../../components/Products/Product/Product.js';
-import AlertBox from '../../components/Animations/AlertBox.js'
-import Spinner from '../../components/Animations/Spinner.js'
+import AlertBox from '../../components/Animations/AlertBox.js';
+import Spinner from '../../components/Animations/Spinner.js';
+import Banner from '../../components/Banner/Banner';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 
 const reducer = (state, action) => {
@@ -43,7 +44,7 @@ function Home() {
   }, []);
   return (
     <div>
-      
+      <Banner/>
       <div className="products">
         {loading ? (
           <Spinner/>
@@ -51,6 +52,7 @@ function Home() {
           <AlertBox variant='danger'>{error}</AlertBox>
         ) : (
           <Container>
+
             <h1>Featured Products</h1>
                       <Row>
             {products.map((product) => (

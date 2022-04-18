@@ -78,7 +78,7 @@ const Navigation = () => {
                     <NavDropdown.Item href="/orderhistory">Order History</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={logOutHandler}>
-                      Log out
+                      Log out |
                     </NavDropdown.Item>
                   </NavDropdown>
                   ):(
