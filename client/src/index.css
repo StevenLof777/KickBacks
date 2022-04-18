@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&family=Staatliches&family=Teko:wght@300&display=swap');
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
 :root{
   --blue:#66799C;
   --beige:#EAE3CC;
@@ -27,6 +29,7 @@
 .main {
   margin-top: 84px;
 }
+
 
 body {
   margin: 0;

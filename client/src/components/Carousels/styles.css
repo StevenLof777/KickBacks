@@ -1,0 +1,24 @@
+.header-2{
+    text-align: center;
+    font-size: large;
+    font-family: var(--ff-barlow-condensed);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.slick-prev::before{
+    color: grey;
+}
+
+.slick-next::before{
+    color: grey;
+}
+
+.carousel-item{
+    object-fit:scale-down;
+    max-height: 8rem;
+}
+
+.carousel-text{
+    text-align: center;
+}

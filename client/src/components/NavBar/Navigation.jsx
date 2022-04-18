@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, Button, Row, Col } from "react-bootstrap"
-import { FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import {ToastContainer} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { Store } from "../../Store.js";

@@ -1,11 +1,12 @@
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
+// import logger from 'use-reducer-logger';
 import {Col, Row, Container } from 'react-bootstrap';
 import Product from '../../components/Products/Product/Product.js';
 import AlertBox from '../../components/Animations/AlertBox.js';
 import Spinner from '../../components/Animations/Spinner.js';
 import Banner from '../../components/Banner/Banner';
+import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx'
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 
 const reducer = (state, action) => {
@@ -22,12 +23,11 @@ const reducer = (state, action) => {
 };
 
 function Home() {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: '',
   });
-  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: FETCH_REQUEST });
@@ -42,6 +42,7 @@ function Home() {
     };
     fetchData();
   }, []);
+  
   return (
     <div>
       <Banner/>
@@ -53,14 +54,15 @@ function Home() {
         ) : (
           <Container>
 
-            <h1>Featured Products</h1>
-                      <Row>
+            {/* <h1>Featured Products</h1> */}
+            <Carousel/>
+                      {/* <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}
-          </Row>
+          </Row>  */}
           </Container>
 
         )}
