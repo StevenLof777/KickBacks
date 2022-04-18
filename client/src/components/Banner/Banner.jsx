@@ -19,9 +19,11 @@ const Banner = () => {
               <Col className="banner-right">
                 <h1 className="banner-right-text">  
                 STEP YOUR NEW SUMMER STYLE
+                <br></br>
+                <Link className="shop-now" to='/'>SHOP NOW</Link>
                 </h1>
 
-                  <Link className="shop-now" to='/'>SHOP NOW</Link>
+                  
 
               </Col>
           </Row>

@@ -19,6 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation/>
+      <div className='main'>
         <Routes>
           <Route path="/product/:slug" element={<Products />} />
           <Route path="/" element={<Home />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path='/orderhistory' element={<OrderHistory/>}></Route>
           <Route path='/account' element={<Account/>}></Route>
         </Routes>
+        </div>
     </BrowserRouter>
   );
 }
