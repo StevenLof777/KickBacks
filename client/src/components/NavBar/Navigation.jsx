@@ -24,83 +24,122 @@ const Navigation = () => {
 
     return(
       <>
-        
-        <header>
-          <ToastContainer position="bottom-center" limit={1}/>
-        </header>
-        <Row>
-        <Navbar expand="lg" className="navContainer" >
+      {/* Desktop */}
+        <div > 
+          <header>
+            <ToastContainer position="bottom-center" limit={1}/>
+          </header>
+          <Navbar expand="lg" className="navContainer" >
+            <Col  className='brand-container'>
+            <img src={brand} className='brand' alt='Brand'/>
+            <Navbar.Brand href="/" className='brand-title'>KickBacks</Navbar.Brand>
+            </Col>
+            <Col className='right-column-nav'>
+              <Row>
+              <Col >
+              <Form className="d-flex">
+              <Button className="search"><FaSearch /></Button>
+                <FormControl
+                  type="search"
+                  placeholder="Search by gender, style, and size"
+                  className="me-2 search-input"
+                  aria-label="Search"
+                />
+              </Form>
+              </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav "  />
+                  <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
+                  <Col >
+                  <Nav className="me-auto ">
+                      <Nav.Link href='/'>Home</Nav.Link>
+                      <Nav.Link href='/'>Mens</Nav.Link>
+                      <Nav.Link href='/'>Womens</Nav.Link>
+                      <Nav.Link href='/'>Kids</Nav.Link>
+                    </Nav>
+                  </Col>
+                  <Col >
+                    <Nav className="justify-content-end ">
+                      {userInfo ? (
+                        <NavDropdown title={userInfo.firstName} id="navbarScrollingDropdown">
+                        <NavDropdown.Item href="/account">Account</NavDropdown.Item>
+                        <NavDropdown.Item href="/orderhistory">Order History</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item onClick={logOutHandler}>
+                          Log out |
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                      ):(
+                        <Link to='/login' className="nav-link">
+                          Login
+                        </Link>
+                      )}
+                      <Link to="/cart" className="nav-link ">
+                      Cart {cart.cartItems.length > 0 && (<Badge pill bg="danger" className="cart-badge">{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</Badge>)}
 
-          <Col sm={2}>
-          <img src={brand} className='brand' alt='Brand'/>
-          <Navbar.Brand href="/" className='brand-title'>KickBacks</Navbar.Brand>
+                      </Link>
+                    </Nav>
+                  </Col>
+                </Navbar.Collapse>
+                </Col>
+              </Row>
           </Col>
+        </Navbar> 
 
+        {/* Mobile */}
+        
+        <Navbar expand="lg" className="mobileNavContainer" >
+        
+            <Navbar.Brand href="/" className='brand-title-mobile'>
+                  <img src={brand} className='brand' alt='Brand'/>KickBacks
+            </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav "  />
+                  <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
 
+                  <Nav className="me-auto text-align-center">
+                      <Nav.Link href='/'>Home</Nav.Link>
+                      <Nav.Link href='/'>Mens</Nav.Link>
+                      <Nav.Link href='/'>Womens</Nav.Link>
+                      <Nav.Link href='/'>Kids</Nav.Link>
+                    </Nav>
 
-          <Col sm={10}>
-          
-          <Row>
-          <Col sm={6}>
+                    <Nav className="justify-content-end text-align-center">
+                      {userInfo ? (
+                        <NavDropdown title={userInfo.firstName} id="navbarScrollingDropdown">
+                        <NavDropdown.Item href="/account">Account</NavDropdown.Item>
+                        <NavDropdown.Item href="/orderhistory">Order History</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item onClick={logOutHandler}>
+                          Log out |
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                      ):(
+                        <Link to='/login' className="nav-link">
+                          Login
+                        </Link>
+                      )}
+                      <Link to="/cart" className="nav-link ">
+                      Cart {cart.cartItems.length > 0 && (<Badge pill bg="danger" className="cart-badge">{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</Badge>)}
 
-          <Form className="d-flex">
-          <Button className="search"><FaSearch /></Button>
+                      </Link>
+                    </Nav>
+                </Navbar.Collapse>
+        </Navbar>
+        <div className="form-container">
+          <Form className="d-flex search-form">
+            <Button className="search my-search"><FaSearch/></Button>
             <FormControl
               type="search"
               placeholder="Search by gender, style, and size"
               className="me-2 search-input"
               aria-label="Search"
             />
- 
           </Form>
-          </Col>
-          </Row>
+        </div> 
 
-          <Row>
-            <Col>
-              <Navbar.Toggle aria-controls="basic-navbar-nav "  />
-              <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
-
-              <Col >
-              <Nav className="me-auto ">
-                  <Nav.Link href='/'>Home</Nav.Link>
-                  <Nav.Link href='/'>Mens</Nav.Link>
-                  <Nav.Link href='/'>Womens</Nav.Link>
-                  <Nav.Link href='/'>Kids</Nav.Link>
-                </Nav>
-              </Col>
-
-              <Col >
-                <Nav className="justify-content-end ">
-                  {userInfo ? (
-                    <NavDropdown title={userInfo.firstName} id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="/account">Account</NavDropdown.Item>
-                    <NavDropdown.Item href="/orderhistory">Order History</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={logOutHandler}>
-                      Log out |
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  ):(
-                    <Link to='/login' className="nav-link">
-                      Login
-                    </Link>
-                  )}
-                  <Link to="/cart" className="nav-link ">
-                  Cart {cart.cartItems.length > 0 && (<Badge pill bg="danger" className="cart-badge">{cart.cartItems.reduce((a, c) => a + c.quantity, 0)}</Badge>)}
-
-                  </Link>
-                </Nav>
-              </Col>
-
-            </Navbar.Collapse>
-            </Col>
-          </Row>
-          
-        </Col>
-
-      </Navbar> 
-      </Row>
+        </div>
       </>
     );
 }

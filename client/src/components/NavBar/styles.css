@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&display=swap');
 
 .navContainer {
-    /* border-bottom: solid; */
     background-color: white;
     border-width: 2px;
     border-color: var(--beige);
@@ -10,6 +9,54 @@
     padding-bottom: 0rem;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+}
+
+.mobileNavContainer {
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0rem;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+@media only screen and (max-width: 1800px) {
+    .brand-title{
+        font-size: 1.5rem
+    } 
+}
+
+@media only screen and (max-width: 992px) {
+    .navContainer{
+        display: none;
+    }
+    .brand-title-mobile{
+        font-family: var(--ff-permanent-marker);
+        padding-left: 0rem;
+        /* background-color: green; */
+    } 
+    .form-control{
+        min-width: 100%;
+    }
+    .form-container{
+        background-color: none;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .mobileNavContainer{
+        display: none;
+    } 
 }
 
 .brand {
@@ -21,6 +68,31 @@
     padding-right: 2rem;
     font-family: 'Permanent Marker', cursive;
     font-size: 2rem;
+}
+
+@media only screen and (max-width: 1800px) {
+    .brand-title{
+        font-size: 1.5rem
+    } 
+}
+
+.right-column-nav{
+    flex: 0 0 auto;
+    min-width: 80%;
+}
+
+@media only screen and (max-width: 1301px) {
+    .right-column-nav{
+        flex: 0 0 auto;
+        min-width: 75%;
+    }
+}
+
+@media only screen and (max-width: 1060px) {
+    .right-column-nav{
+        flex: 0 0 auto;
+        min-width: 70%;
+    }
 }
 
 .nav-text{
@@ -48,6 +120,7 @@
     border-right: none;
     padding: 0%;
     margin-left: 1rem;
+    max-width: 50%;
 }
 
 .cart-badge{
