@@ -3,7 +3,8 @@
     font-size: large;
     font-family: var(--ff-barlow-condensed);
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
+    font-weight: 600;
 }
 
 .slick-prev::before{

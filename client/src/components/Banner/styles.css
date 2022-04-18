@@ -8,8 +8,11 @@
 
 .banner{
     background-color: var(--blue);
+}
 
-
+.banner-container{
+    margin: auto;
+    width: 100%;
 }
 
 .banner-right{
@@ -24,8 +27,8 @@
 
 .banner-left{
     /* background-color: var(--blue); */
-    margin-left: 0%;
-    margin-right: 0%;
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 0;
 }
 
@@ -35,6 +38,27 @@
     text-align: center;
     font-size: 4rem;
     flex: 0 0 360px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .banner-right-text{
+        font-size: 3.5em;
+    }
+    .shop-now{
+        color: green;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .banner-right-text{
+        font-size: 3em
+    }
+    
+    .shop-now{
+        font-size: 1em;
+        color: green;
+    }
 }
 
 .shop-now{

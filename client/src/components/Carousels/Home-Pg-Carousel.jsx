@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import {Row, Col} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import './styles.css';
 import thumbnail from './Carousels-Thumbnail.webp'
 
@@ -9,7 +9,7 @@ export default class SimpleSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 500,
+      speed: 800,
       slidesToShow: 3,
       slidesToScroll: 1
     };
