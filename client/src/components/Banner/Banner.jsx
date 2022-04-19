@@ -12,10 +12,10 @@ const Banner = () => {
                         <img src={nikes} alt="Model Converse" className="banner-img text-ovelay"/>
                     </Col>
                     <Col className="banner-right">
-                      <h1 className="banner-right-text">  
-                        <div >STEP UP YOUR NEW SUMMER STYLE</div>
+                      <div className="banner-right-text">  
+                        <h1 className="banner-h">STEP UP YOUR NEW SUMMER STYLE</h1>
                         <Link className="shop-now" to='/'>SHOP NOW</Link>
-                      </h1>
+                      </div>
                     </Col>
                 </Row>
           </div>

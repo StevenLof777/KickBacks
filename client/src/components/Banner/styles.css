@@ -33,11 +33,15 @@
 }
 
 .banner-right-text{
+    text-align: center;
+    flex: 0 0 360px;
+}
+
+.banner-h{
     font-family: var(--ff-Staatliches);
     color: var(--beige);
     text-align: center;
     font-size: 4rem;
-    flex: 0 0 360px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -50,14 +54,37 @@
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .banner-right-text{
+        font-size: 2rem;
+    }
+    .shop-now{
+        font-size: 2em;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .banner-right-text{
         font-size: 3em
     }
-    
+    .banner-left{
+        display: none;
+    }
+    .banner-right{
+        padding: 1rem;
+    }
     .shop-now{
         font-size: 1em;
         color: green;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .banner-h{
+        font-size: 3rem;
+    }
+    .shop-now{
+        font-size: 2rem;
     }
 }
 
