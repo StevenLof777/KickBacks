@@ -7,6 +7,10 @@
     font-weight: 600;
 }
 
+.carousel-container{
+    padding-bottom: 3rem;
+}
+
 .slick-prev::before{
     color: grey;
 }

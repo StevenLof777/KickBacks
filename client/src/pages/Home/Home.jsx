@@ -6,8 +6,9 @@ import Product from '../../components/Products/Product/Product.js';
 import AlertBox from '../../components/Animations/AlertBox.js';
 import Spinner from '../../components/Animations/Spinner.js';
 import Banner from '../../components/Banner/Banner';
-import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx'
+import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
+import Main from '../../components/Main/Main.jsx';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -63,6 +64,7 @@ function Home() {
               </Col>
             ))}
           </Row>  */}
+          <Main/>
           </Container>
 
         )}

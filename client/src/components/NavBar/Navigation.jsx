@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, Button, Row, Col } from "react-bootstrap"
+import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, button, Row, Col } from "react-bootstrap"
 import { FaSearch } from 'react-icons/fa';
 import {ToastContainer} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,7 @@ const Navigation = () => {
               <Row>
               <Col >
               <Form className="d-flex">
-              <Button className="search"><FaSearch /></Button>
+              <button className="search"><FaSearch /></button>
                 <FormControl
                   type="search"
                   placeholder="Search by gender, style, and size"
@@ -128,7 +128,7 @@ const Navigation = () => {
                 </Navbar.Collapse>
                 <div className="form-container">
                       <Form className="d-flex search-form">
-                        <Button className="search my-search"><FaSearch/></Button>
+                        <button className="search my-search"><FaSearch/></button>
                         <FormControl
                           type="search"
                           placeholder="Search by gender, style, and size"

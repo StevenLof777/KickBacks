@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import {Row} from 'react-bootstrap';
+import {Row, Container} from 'react-bootstrap';
 import './styles.css';
 import thumbnail from './Carousels-Thumbnail.webp'
 
@@ -14,7 +14,8 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1
     };
     return (
-      <div>
+      <Container className="carousel-container">
+        <div>
         <h2 className="header-2"> CHECK OUT OUR NEW ARRIVALS</h2>
         <Slider {...settings}>
           <div>
@@ -56,6 +57,8 @@ export default class SimpleSlider extends Component {
 
         </Slider>
       </div>
+      </Container>
+      
     );
   }
 }
