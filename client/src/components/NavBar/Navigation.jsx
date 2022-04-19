@@ -98,7 +98,7 @@ const Navigation = () => {
                   <Navbar.Toggle aria-controls="basic-navbar-nav "  />
                   <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
 
-                  <Nav className="me-auto text-align-center">
+                  <Nav className="me-auto text-align-center"> 
                       <Nav.Link href='/'>Home</Nav.Link>
                       <Nav.Link href='/'>Mens</Nav.Link>
                       <Nav.Link href='/'>Womens</Nav.Link>
@@ -112,7 +112,7 @@ const Navigation = () => {
                         <NavDropdown.Item href="/orderhistory">Order History</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={logOutHandler}>
-                          Log out |
+                          Log out
                         </NavDropdown.Item>
                       </NavDropdown>
                       ):(
@@ -126,18 +126,19 @@ const Navigation = () => {
                       </Link>
                     </Nav>
                 </Navbar.Collapse>
+                <div className="form-container">
+                      <Form className="d-flex search-form">
+                        <Button className="search my-search"><FaSearch/></Button>
+                        <FormControl
+                          type="search"
+                          placeholder="Search by gender, style, and size"
+                          className="me-2 search-input"
+                          aria-label="Search"
+                        />
+                      </Form>
+                    </div>
         </Navbar>
-        <div className="form-container">
-          <Form className="d-flex search-form">
-            <Button className="search my-search"><FaSearch/></Button>
-            <FormControl
-              type="search"
-              placeholder="Search by gender, style, and size"
-              className="me-2 search-input"
-              aria-label="Search"
-            />
-          </Form>
-        </div> 
+
 
         </div>
       </>

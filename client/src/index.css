@@ -41,5 +41,11 @@ code {
 }
 
 .main{
-  margin-top: 84px;
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 992px) {
+  .main{
+    margin-top: 111px;
+  } 
 }

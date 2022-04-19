@@ -18,7 +18,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 0rem;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -43,19 +43,38 @@
         padding-left: 0rem;
         /* background-color: green; */
     } 
-    .form-control{
-        min-width: 100%;
-    }
     .form-container{
+        background-color: white;
+        width: 100%;
+        /* margin-top: 24px; */
+        /* position: fixed; */
         background-color: none;
-        margin-left: 1rem;
+        padding-left: 1rem;
+    }
+    .search-input {
+        /* font-size: 1em; */
+        /* padding: 0.25em; */
+        border-bottom: none;
+        width: 100%;
+        min-width: 100%;
+        margin: 0px;
+        /* background-color: pink; */
+    }
+    .search-form{
+        border-bottom: solid;
+        border-width: 1px;
+        border-color: grey;
         margin-right: 1rem;
+    }
+    .mobileNavContainer{
+        padding-bottom: 8px;;
     }
 }
 
 @media only screen and (min-width: 992px) {
     .mobileNavContainer{
         display: none;
+        
     } 
 }
 
