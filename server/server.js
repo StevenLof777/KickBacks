@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-// import seeds from './routes/seeds.js'
-// import product from './routes/products.js';
-// import users from './routes/users.js';
-// import orders from './routes/orders.js';
+import seeds from './routes/seeds.js'
+import product from './routes/products.js';
+import users from './routes/users.js';
+import orders from './routes/orders.js';
 import path from 'path'
 
 dotenv.config();
@@ -27,10 +27,10 @@ app.get('/api/keys/paypal', (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
 
-// app.use('/api/seed', seeds);
-// app.use('/api/products', product);
-// app.use('/api/users', users);
-// app.use('/api/orders', orders);
+app.use('/api/seed', seeds);
+app.use('/api/products', product);
+app.use('/api/users', users);
+app.use('/api/orders', orders);
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/client/build')));
