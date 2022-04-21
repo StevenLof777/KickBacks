@@ -38,8 +38,6 @@ function Home() {
       } catch (err) {
         dispatch({ type: FETCH_FAIL, payload: err.message });
       }
-
-      // setProducts(result.data);
     };
     fetchData();
   }, []);
@@ -48,26 +46,27 @@ function Home() {
     <div>
       <Banner/>
       <div className="products">
-        {loading ? (
+        {/* {loading ? (
           <Spinner/>
         ) : error ? (
           <AlertBox variant='danger'>{error}</AlertBox>
-        ) : (
+        ) : ( */}
           <Container>
 
-            {/* <h1>Featured Products</h1> */}
+            <h1>Featured Products</h1>
             <Carousel/>
-                      {/* <Row>
+                      <Row>
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}
-          </Row>  */}
+          </Row> 
+
           <Main/>
           </Container>
 
-        )}
+        {/* )} */}
       </div>
     </div>
   );
