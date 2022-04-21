@@ -1,5 +1,5 @@
 import express from 'express';
-import Product from '../models/Products.js';
+import Product from '../models/products.js';
 import User from '../models/User.js';
 import bcrypt from 'bcryptjs'
 
