@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Prompt:wght@400;700&family=Roboto:wght@500&display=swap');
 
 .navContainer {
+    z-index:1;
     background-color: white;
     border-width: 2px;
     border-color: var(--beige);
@@ -14,6 +15,7 @@
 }
 
 .mobileNavContainer {
+    z-index:1;
     background-color: white;
     padding-left: 1rem;
     padding-right: 1rem;
