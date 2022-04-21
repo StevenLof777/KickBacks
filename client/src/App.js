@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './components/NavBar/Navigation.jsx';
 import Signup from "./pages/Signup/Signup.js";
 import Home from './pages/Home/Home.jsx';
-import Products from './components/Products/Products.js';
+// import Products from './components/Products/Products.js';
 import Cart from './pages/Cart/Cart.jsx';
 import Shipping from '../src/pages/Shipping/Shipping.jsx';
 import Payment from '../src/pages/Payment/Payment.jsx';
@@ -21,7 +21,7 @@ function App() {
       <Navigation className='desktop' />
       <div className='main'>
         <Routes>
-          <Route path="/product/:slug" element={<Products />} />
+          {/* <Route path="/product/:slug" element={<Products />} /> */}
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/signup' element={<Signup/>}></Route>
