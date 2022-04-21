@@ -28,7 +28,7 @@ app.get('/api/keys/paypal', (req, res) => {
 });
 
 app.use('/api/seed', seeds);
-app.use('/api/products', product);
+// app.use('/api/products', product);
 app.use('/api/users', users);
 app.use('/api/orders', orders);
 
