@@ -130,7 +130,7 @@ function Product() {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button variant="primary" onClick={addToCartHandler}>Add to Cart</Button>
+                      <Button variant="primary" className='custom-button' onClick={addToCartHandler}>Add to Cart</Button>
                     </div>
                   </ListGroup.Item>
                 )}

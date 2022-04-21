@@ -37,7 +37,7 @@ const Navigation = () => {
             <Col className='right-column-nav'>
               <Row>
               <Col >
-              <Form className="d-flex">
+              {/* <Form className="d-flex">
               <button className="search"><FaSearch /></button>
                 <FormControl
                   type="search"
@@ -45,7 +45,7 @@ const Navigation = () => {
                   className="me-2 search-input"
                   aria-label="Search"
                 />
-              </Form>
+              </Form> */}
               </Col>
               </Row>
               <Row>
@@ -53,12 +53,12 @@ const Navigation = () => {
                   <Navbar.Toggle aria-controls="basic-navbar-nav "  />
                   <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
                   <Col >
-                  <Nav className="me-auto ">
+                  {/* <Nav className="me-auto ">
                       <Nav.Link href='/'>Home</Nav.Link>
                       <Nav.Link href='/'>Mens</Nav.Link>
                       <Nav.Link href='/'>Womens</Nav.Link>
                       <Nav.Link href='/'>Kids</Nav.Link>
-                    </Nav>
+                    </Nav> */}
                   </Col>
                   <Col >
                     <Nav className="justify-content-end ">

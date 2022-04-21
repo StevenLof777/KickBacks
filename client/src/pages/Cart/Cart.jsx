@@ -13,7 +13,8 @@ export default function Cart() {
   const {
     cart: { cartItems },
   } = state;
-
+  let total = cartItems.reduce((a, c) => a + c.price * c.quantity, 0)
+  
   const updateCartHandler =async (item, quantity) => {
     const {data} = await axios.get(`/api/products/${item._id}`);
     if(data.countInStock < quantity) {
@@ -36,7 +37,7 @@ export default function Cart() {
   const checkoutHandler = () => {
     navigate('/login?redirect=/shipping')
   }
-
+  
   return (
     <Container>
       <Helmet>
@@ -101,12 +102,13 @@ export default function Cart() {
                   <h3>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                     items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    {Math.round((total + Number.EPSILON) * 100) / 100}
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">
                     <Button
+                      className='custom-button'
                       type="button"
                       variant="primary"
                       onClick={checkoutHandler}
