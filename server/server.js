@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import seeds from './routes/seeds.js'
-import product from './routes/products.js';
+// import product from './routes/products.js';
 import users from './routes/users.js';
 import orders from './routes/orders.js';
 import path from 'path'
