@@ -1,0 +1,20 @@
+.rating{
+    color: gold;
+}
+
+.product-card{
+    border: none;
+}
+
+.product-title{
+    color: grey;
+    font-weight: 200;  
+}
+
+a {
+    text-decoration: none;   
+}
+
+.category-title{
+    font-weight: 400;
+}

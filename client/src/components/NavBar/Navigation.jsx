@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, button, Row, Col } from "react-bootstrap"
 import { FaSearch } from 'react-icons/fa';
@@ -22,6 +22,12 @@ const Navigation = () => {
       navigate('/')
     }
 
+    const [query, setQuery] = useState('');
+    const submitHandler = (e) => {
+      e.preventDefault();
+      navigate(query ? `/search/?query=${query}` : '/search');
+    };
+
     return(
       <>
       {/* Desktop */}
@@ -37,15 +43,16 @@ const Navigation = () => {
             <Col className='right-column-nav'>
               <Row>
               <Col >
-              {/* <Form className="d-flex">
+              <Form className="d-flex" onSubmit={submitHandler}>
               <button className="search"><FaSearch /></button>
                 <FormControl
                   type="search"
+                  onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search by gender, style, and size"
                   className="me-2 search-input"
                   aria-label="Search"
                 />
-              </Form> */}
+              </Form>
               </Col>
               </Row>
               <Row>
@@ -53,12 +60,12 @@ const Navigation = () => {
                   <Navbar.Toggle aria-controls="basic-navbar-nav "  />
                   <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
                   <Col >
-                  {/* <Nav className="me-auto ">
+                  <Nav className="me-auto ">
                       <Nav.Link href='/'>Home</Nav.Link>
                       <Nav.Link href='/'>Mens</Nav.Link>
                       <Nav.Link href='/'>Womens</Nav.Link>
                       <Nav.Link href='/'>Kids</Nav.Link>
-                    </Nav> */}
+                    </Nav>
                   </Col>
                   <Col >
                     <Nav className="justify-content-end ">
@@ -127,10 +134,11 @@ const Navigation = () => {
                     </Nav>
                 </Navbar.Collapse>
                 <div className="form-container">
-                      <Form className="d-flex search-form">
-                        <button className="search my-search"><FaSearch/></button>
+                      <Form onSubmit={submitHandler} className="d-flex search-form">
+                        <button  className="search my-search"><FaSearch/></button>
                         <FormControl
                           type="search"
+                          onChange={(e) => setQuery(e.target.value)}
                           placeholder="Search by gender, style, and size"
                           className="me-2 search-input"
                           aria-label="Search"

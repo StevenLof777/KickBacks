@@ -34,7 +34,6 @@ function Product() {
     loading: true,
     error: '',
   });
-  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: FETCH_REQUEST });
@@ -63,7 +62,6 @@ function Product() {
     });
     navigate('/cart')
   };
-
   return loading ? (
     <Container>
       <Spinner/>

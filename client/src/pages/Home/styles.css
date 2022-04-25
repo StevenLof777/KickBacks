@@ -1,0 +1,11 @@
+.product-container{
+    margin-top: 1rem;
+    /* margin-bottom: 1rem; */
+    border-top: solid;
+    border-width: 1px;
+    border-color: rgb(184, 184, 184);
+}
+
+.product-row{
+    margin-top: 2rem;
+}
