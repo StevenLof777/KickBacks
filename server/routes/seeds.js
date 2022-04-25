@@ -7,7 +7,6 @@ const data = {
   users: [
     {
       firstName: 'John',
-      // name: 'John',
       lastName: 'Doe',
       email: 'admin@email.com',
       password: bcrypt.hashSync('123456'),
@@ -25,6 +24,7 @@ const data = {
     {
       name: 'Crocs',
       slug: 'crocs',
+      gender: 'Womens',
       category: 'Crocs',
       image: '/images/shoes/crocs.jpg',
       price: 29.99,
@@ -37,6 +37,7 @@ const data = {
     {
       name: 'Converse',
       slug: 'converse',
+      gender: 'Men',
       category: 'High Tops',
       image: '/images/shoes/converse.jpg',
       price: 59.99,
@@ -49,6 +50,7 @@ const data = {
     {
       name: 'New Balance',
       slug: 'new-balance',
+      gender: 'Men',
       category: 'Sneaker', 
       image: '/images/shoes/new-balance.jpg',
       price: 59.99,
@@ -61,6 +63,7 @@ const data = {
     {
       name: 'Nike',
       slug: 'nike',
+      gender: 'Men',
       category: 'High Tops',
       image: '/images/shoes/nike.webp',
       price: 45.59,
@@ -73,6 +76,7 @@ const data = {
     {
       name: 'Sketchers',
       slug: 'sketchers',
+      gender: 'Men',
       category: 'High Tops',
       image: '/images/shoes/sketchers.jpg',
       price: 39.99,
@@ -85,6 +89,7 @@ const data = {
     {
       name: 'Chacos',
       slug: 'chacos',
+      gender: 'Men',
       category: 'Sandals',
       image: '/images/shoes/chacos.jpg',
       price: 69.99,

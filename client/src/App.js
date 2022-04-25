@@ -13,6 +13,7 @@ import Payment from '../src/pages/Payment/Payment.jsx';
 import Checkout from '../src/pages/Checkout/Checkout.jsx';
 import Order from '../src/pages/Order/Order.jsx';
 import OrderHistory from './pages/OrderHistory/OrderHistory.jsx';
+import Search from './pages/Search/Search.jsx';
 import Account from './pages/Account/Account.jsx';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/product/:slug" element={<Products />} />
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
           <Route path='/signup' element={<Signup/>}></Route>
           <Route path='/login' element={<Login/>}></Route>

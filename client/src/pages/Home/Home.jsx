@@ -69,11 +69,14 @@ function Home() {
     <div>
       <Banner/>
       <div className="products">
-        {loading ? (
+        {/* {loading ? (
           <Spinner/>
         ) : error ? (
-          <AlertBox variant='danger'>{error}</AlertBox>
-        ) : (
+
+          <Container>
+            <AlertBox variant='danger'>{error}</AlertBox>
+          </Container> 
+        ) : ( */}
           <Container className='product-container'>
 
             {/* <h1>Featured Products</h1> */}
@@ -137,7 +140,7 @@ function Home() {
           {/* <Main/> */}
           </Container>
 
-        )}  
+        {/* )}   */}
       </div>
     </div>
   );
