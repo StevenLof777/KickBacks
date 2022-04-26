@@ -35,6 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -48,6 +50,27 @@ code {
   .main{
     margin-top: 111px;
   } 
+}
+
+
+@media only screen and (max-width: 780px) {
+  .banner-main-container{
+      display: block;
+  }
+  .custom-button{
+      width: 100%;
+  }
+}
+
+.custom-button{
+  background-color: black;
+  border: none;
+  border-radius: 0%;
+}
+
+.custom-button:hover, .custom-button:focus{
+  background-color: var(--beige);
+  color: black;
 }
 
 

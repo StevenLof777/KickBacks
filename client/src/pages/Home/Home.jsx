@@ -1,18 +1,29 @@
 import { useEffect, useReducer, 
-  // useState
+  // eslint-disable-next-line
+  useState
  } from 'react';
 import axios from 'axios';
 // import logger from 'use-reducer-logger';
-// import { toast, ToastContainer } from 'react-toastify';
-import { Col, Row, Container, Form } from 'react-bootstrap';
+// eslint-disable-next-line
+import LinkContainer from 'react-router-bootstrap/LinkContainer';
+// eslint-disable-next-line
+import { toast, 
+  // eslint-disable-next-line
+  ToastContainer 
+} from 'react-toastify';
+// eslint-disable-next-line
+import { Col, Row, Container, Form, Nav } from 'react-bootstrap';
 import Product from '../../components/Products/Product/Product.js';
+// eslint-disable-next-line
 import AlertBox from '../../components/Animations/AlertBox.js';
+// eslint-disable-next-line
 import Spinner from '../../components/Animations/Spinner.js';
 import Banner from '../../components/Banner/Banner';
 // import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
 // import Main from '../../components/Main/Main.jsx';
-// import { getError } from '../../utils.js';
+// eslint-disable-next-line
+import { getError } from '../../utils.js';
 import './styles.css'
 
 const reducer = (state, action) => {
@@ -30,8 +41,8 @@ const reducer = (state, action) => {
 
 function Home() {
   const [{ 
-    loading, 
-    error, 
+    // loading, 
+    // error, 
     products
    }, dispatch] = useReducer(reducer, {
     products: [],
@@ -109,19 +120,19 @@ function Home() {
                       <Form.Check key={category}>
                         <LinkContainer
                           to={`/search?category=${category}`}
-                          onClick={() => setSidebarIsOpen(false)}
+                          onClick={() => (false)}
                         >
                           <Nav.Link>{category}</Nav.Link>
                         </LinkContainer>
                       </Form.Check>
                       ))} */}
 
-                    {/* <Form.Check
+                    <Form.Check
                       disabled
                       type={type}
                       label={`disabled ${type}`}
                       id={`disabled-default-${type}`}
-                    /> */}
+                    />
                   </div>
                 ))}
               </Form>
@@ -140,7 +151,7 @@ function Home() {
           {/* <Main/> */}
           </Container>
 
-        {/* )}   */}
+        {/* )}    */}
       </div>
     </div>
   );

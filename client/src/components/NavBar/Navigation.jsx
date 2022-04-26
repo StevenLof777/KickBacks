@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, button, Row, Col } from "react-bootstrap"
+import { Navbar, Nav, Badge, NavDropdown, Form, FormControl, 
+  // button, 
+  Row, Col } from "react-bootstrap"
 import { FaSearch } from 'react-icons/fa';
 import {ToastContainer} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import { Store } from "../../Store.js";
 import {LOGOUT} from '../../constants/actionTypes.js';
-import brand from './brand.png'
+import brand from './brand.png';
 import './styles.css';
 
 const Navigation = () => {
@@ -153,3 +155,4 @@ const Navigation = () => {
     );
 }
 export default Navigation
+

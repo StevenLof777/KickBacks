@@ -6,17 +6,17 @@ import { getError } from '../../utils';
 import { Helmet } from 'react-helmet-async';
 import {Row, Col, Button } from 'react-bootstrap';
 import LinkContainer from 'react-router-bootstrap/LinkContainer'
-import { FETCH_REQUEST, FETCH_SUCCESS } from '../../constants/actionTypes';
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes';
 import Rating from '../../components/Products/Product/Rating.js';
-import Spinner from '../../components/Animations/Spinner.js';
-import AlertBox from '../../components/Animations/AlertBox.js';
+// import Spinner from '../../components/Animations/Spinner.js';
+// import AlertBox from '../../components/Animations/AlertBox.js';
 import Product from '../../components/Products/Product/Product.js';
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FETCH_REQUEST':
+    case FETCH_REQUEST:
       return { ...state, loading: true };
-    case 'FETCH_SUCCESS':
+    case FETCH_SUCCESS:
       return {
         ...state,
         products: action.payload.products,
@@ -25,7 +25,7 @@ const reducer = (state, action) => {
         countProducts: action.payload.countProducts,
         loading: false,
       };
-    case 'FETCH_FAIL':
+    case FETCH_FAIL:
       return { ...state, loading: false, error: action.payload };
 
     default:
@@ -81,7 +81,9 @@ export default function SearchScreen() {
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
-  const [{ loading, error, products, pages, countProducts }, dispatch] =
+  const [{ 
+    // loading,
+    error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',
@@ -127,7 +129,8 @@ export default function SearchScreen() {
     return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
+    <div className='container'>
+      Bruh
       <Helmet>
         <title>Search Products</title>
       </Helmet>
@@ -144,7 +147,7 @@ export default function SearchScreen() {
                   Any
                 </Link>
               </li>
-              {categories.map((c) => (
+              {categories?.map((c) => (
                 <li key={c}>
                   <Link
                     className={c === category ? 'text-bold' : ''}
@@ -167,7 +170,7 @@ export default function SearchScreen() {
                   Any
                 </Link>
               </li>
-              {prices.map((p) => (
+              {prices?.map((p) => (
                 <li key={p.value}>
                   <Link
                     to={getFilterUrl({ price: p.value })}
@@ -182,7 +185,7 @@ export default function SearchScreen() {
           <div>
             <h3>Avg. Customer Review</h3>
             <ul>
-              {ratings.map((r) => (
+              {ratings?.map((r) => (
                 <li key={r.name}>
                   <Link
                     to={getFilterUrl({ rating: r.rating })}
@@ -204,11 +207,11 @@ export default function SearchScreen() {
           </div>
         </Col>
         <Col md={9}>
-          {loading ? (
+          {/* {loading ? (
             <Spinner/>
           ) : error ? (
             <AlertBox/>
-          ) : (
+          ) : ( */}
             <>
               <Row className="justify-content-between mb-3">
                 <Col md={6}>
@@ -246,12 +249,14 @@ export default function SearchScreen() {
                   </select>
                 </Col>
               </Row>
-              {products.length === 0 && (
+
+              {/* Broke shit */}
+              {/* {products.length === 0 && (
                 <AlertBox>No Product Found</AlertBox>
-              )}
+              )} */}
 
               <Row>
-                {products.map((product) => (
+                {products?.map((product) => (
                   <Col sm={6} lg={4} className="mb-3" key={product._id}>
                     <Product product={product}></Product>
                   </Col>
@@ -275,9 +280,10 @@ export default function SearchScreen() {
                 ))}
               </div>
             </>
-          )}
+          {/* )} */}
         </Col>
       </Row>
     </div>
   );
 }
+

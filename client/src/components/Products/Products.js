@@ -137,7 +137,7 @@ function Product() {
           </Card>
         </Col>
       </Row>
-    </>)
+    </>
     </Container>
   )
 }

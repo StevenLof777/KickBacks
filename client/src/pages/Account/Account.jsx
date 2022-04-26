@@ -139,7 +139,7 @@ export default function Account() {
           />
         </Form.Group>
         <div className="mb-3">
-          <Button type="submit">Update</Button>
+          <Button className='custom-button' type="submit">Update</Button>
         </div>
         <div className="mb-3">
           {/* <a onClick={}>Delete Account</a> */}

@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { CART_ADD_ITEM, REMOVE_CART_ITEM } from '../../constants/actionTypes.js';
 
+
 export default function Cart() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const navigate = useNavigate();
