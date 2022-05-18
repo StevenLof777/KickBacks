@@ -8,8 +8,8 @@ import {Row, Col, Button } from 'react-bootstrap';
 import LinkContainer from 'react-router-bootstrap/LinkContainer'
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes';
 import Rating from '../../components/Products/Product/Rating.js';
-// import Spinner from '../../components/Animations/Spinner.js';
-// import AlertBox from '../../components/Animations/AlertBox.js';
+import Spinner from '../../components/Animations/Spinner.js';
+import AlertBox from '../../components/Animations/AlertBox.js';
 import Product from '../../components/Products/Product/Product.js';
 
 const reducer = (state, action) => {
@@ -82,7 +82,7 @@ export default function SearchScreen() {
   const page = sp.get('page') || 1;
 
   const [{ 
-    // loading,
+    loading,
     error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
@@ -207,11 +207,11 @@ export default function SearchScreen() {
           </div>
         </Col>
         <Col md={9}>
-          {/* {loading ? (
+          {loading ? (
             <Spinner/>
           ) : error ? (
             <AlertBox/>
-          ) : ( */}
+          ) : (
             <>
               <Row className="justify-content-between mb-3">
                 <Col md={6}>
@@ -250,10 +250,10 @@ export default function SearchScreen() {
                 </Col>
               </Row>
 
-              {/* Broke shit */}
-              {/* {products.length === 0 && (
+               
+               {products.length === 0 && (
                 <AlertBox>No Product Found</AlertBox>
-              )} */}
+              )} 
 
               <Row>
                 {products?.map((product) => (
@@ -280,7 +280,7 @@ export default function SearchScreen() {
                 ))}
               </div>
             </>
-          {/* )} */}
+          )} 
         </Col>
       </Row>
     </div>

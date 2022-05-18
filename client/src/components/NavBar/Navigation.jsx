@@ -15,6 +15,12 @@ const Navigation = () => {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
   const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+  const submitHandler = (e) => {
+    e.preventDefault();
+    navigate(query ? `/search/?query=${query}` : '/search');
+  };
+
 
     const logOutHandler = () => {
       ctxDispatch({ type: LOGOUT });
@@ -23,12 +29,6 @@ const Navigation = () => {
       localStorage.removeItem('shippingAddress');
       navigate('/')
     }
-
-    const [query, setQuery] = useState('');
-    const submitHandler = (e) => {
-      e.preventDefault();
-      navigate(query ? `/search/?query=${query}` : '/search');
-    };
 
     return(
       <>
