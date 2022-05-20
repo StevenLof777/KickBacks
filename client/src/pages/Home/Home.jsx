@@ -92,51 +92,7 @@ function Home() {
 
             {/* <h1>Featured Products</h1> */}
             {/* <Carousel/> */}
-            <Row className='product-row'>
-              <Col sm={3}>
-              <Form>
-                {['checkbox'].map((type) => (
-                  <div key={`default-${type}`} className="mb-3">
-                    <h2 className='font-weight-300'>CATEGORIES</h2 >
-                    <Form.Check 
-                      type={type}
-                      id={`default-${type}`}
-                      // label={`default ${type}`}
-                      label='Womens'
-                    />
-                    <Form.Check 
-                      type={type}
-                      id={`default-${type}`}
-                      // label={`default ${type}`}
-                      label='Mens'
-                    />
-                    <Form.Check 
-                      type={type}
-                      id={`default-${type}`}
-                      // label={`default ${type}`}
-                      label='Kids'
-                    />
-                     {/* {categories.map((category) => (
-                      <Form.Check key={category}>
-                        <LinkContainer
-                          to={`/search?category=${category}`}
-                          onClick={() => (false)}
-                        >
-                          <Nav.Link>{category}</Nav.Link>
-                        </LinkContainer>
-                      </Form.Check>
-                      ))} */}
 
-                    <Form.Check
-                      disabled
-                      type={type}
-                      label={`disabled ${type}`}
-                      id={`disabled-default-${type}`}
-                    />
-                  </div>
-                ))}
-              </Form>
-              </Col>
               <Col>
                 <Row>
                   {products.map((product) => (
@@ -146,7 +102,7 @@ function Home() {
                   ))}
                 </Row> 
               </Col>
-            </Row>
+
 
           {/* <Main/> */}
           </Container>

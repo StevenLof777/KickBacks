@@ -32,7 +32,6 @@ const Navigation = () => {
 
     return(
       <>
-      {/* Desktop */}
         <div > 
           <header>
             <ToastContainer position="bottom-center" limit={1}/>
@@ -50,7 +49,7 @@ const Navigation = () => {
                 <FormControl
                   type="search"
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search by gender, style, and size"
+                  placeholder="Search by brand"
                   className="me-2 search-input"
                   aria-label="Search"
                 />
@@ -61,14 +60,14 @@ const Navigation = () => {
                 <Col>
                   <Navbar.Toggle aria-controls="basic-navbar-nav "  />
                   <Navbar.Collapse id="basic-navbar-nav " className="nav-text">
-                  <Col >
+                  {/* <Col >
                   <Nav className="me-auto ">
                       <Nav.Link href='/'>Home</Nav.Link>
                       <Nav.Link href='/'>Mens</Nav.Link>
                       <Nav.Link href='/'>Womens</Nav.Link>
                       <Nav.Link href='/'>Kids</Nav.Link>
                     </Nav>
-                  </Col>
+                  </Col> */}
                   <Col >
                     <Nav className="justify-content-end ">
                       {userInfo ? (
@@ -141,7 +140,7 @@ const Navigation = () => {
                         <FormControl
                           type="search"
                           onChange={(e) => setQuery(e.target.value)}
-                          placeholder="Search by gender, style, and size"
+                          placeholder="Search for brands"
                           className="me-2 search-input"
                           aria-label="Search"
                         />

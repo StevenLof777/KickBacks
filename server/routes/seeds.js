@@ -37,7 +37,7 @@ const data = {
     {
       name: 'Converse',
       slug: 'converse',
-      gender: 'Men',
+      gender: 'Mens',
       category: 'High Tops',
       image: '/images/shoes/converse.jpg',
       price: 59.99,
@@ -50,7 +50,7 @@ const data = {
     {
       name: 'New Balance',
       slug: 'new-balance',
-      gender: 'Men',
+      gender: 'Mens',
       category: 'Sneaker', 
       image: '/images/shoes/new-balance.jpg',
       price: 59.99,
@@ -63,7 +63,7 @@ const data = {
     {
       name: 'Nike',
       slug: 'nike',
-      gender: 'Men',
+      gender: 'Mens',
       category: 'High Tops',
       image: '/images/shoes/nike.webp',
       price: 45.59,
@@ -76,7 +76,7 @@ const data = {
     {
       name: 'Sketchers',
       slug: 'sketchers',
-      gender: 'Men',
+      gender: 'Mens',
       category: 'High Tops',
       image: '/images/shoes/sketchers.jpg',
       price: 39.99,
@@ -89,7 +89,7 @@ const data = {
     {
       name: 'Chacos',
       slug: 'chacos',
-      gender: 'Men',
+      gender: 'Mens',
       category: 'Sandals',
       image: '/images/shoes/chacos.jpg',
       price: 69.99,

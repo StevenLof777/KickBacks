@@ -4,13 +4,15 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { getError } from '../../utils';
 import { Helmet } from 'react-helmet-async';
-import {Row, Col, Button } from 'react-bootstrap';
-import LinkContainer from 'react-router-bootstrap/LinkContainer'
+import { Row, Col, Button } from 'react-bootstrap';
+import LinkContainer from 'react-router-bootstrap/LinkContainer';
+import {RiCheckboxBlankLine} from 'react-icons/ri/'
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes';
 import Rating from '../../components/Products/Product/Rating.js';
 import Spinner from '../../components/Animations/Spinner.js';
 import AlertBox from '../../components/Animations/AlertBox.js';
 import Product from '../../components/Products/Product/Product.js';
+import './styles.css'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -70,20 +72,24 @@ export const ratings = [
   },
 ];
 
+const checkBox=()=>{
+  return(<RiCheckboxBlankLine/>)
+}
+
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const category = sp.get('category') || 'all';
   const query = sp.get('query') || 'all';
+  const gender = sp.get('gender') || 'all';
   const price = sp.get('price') || 'all';
   const rating = sp.get('rating') || 'all';
   const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
   const [{ 
-    loading,
-    error, products, pages, countProducts }, dispatch] =
+    loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: '',
@@ -93,18 +99,18 @@ export default function SearchScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+          `/api/products/search?page=${page}&query=${query}&category=${category}&gender=${gender}&price=${price}&rating=${rating}&order=${order}`
         );
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: FETCH_SUCCESS, payload: data });
       } catch (err) {
         dispatch({
-          type: 'FETCH_FAIL',
+          type: FETCH_FAIL,
           payload: getError(error),
         });
       }
     };
     fetchData();
-  }, [category, error, order, page, price, query, rating]);
+  }, [category, error, order, page, price, query, rating, gender]);
 
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -125,51 +131,49 @@ export default function SearchScreen() {
     const filterQuery = filter.query || query;
     const filterRating = filter.rating || rating;
     const filterPrice = filter.price || price;
+    const filterGender = filter.gender || gender;
     const sortOrder = filter.order || order;
-    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    return `/search?category=${filterCategory}&query=${filterQuery}&gender=${filterGender}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
+  
   return (
     <div className='container'>
-      Bruh
       <Helmet>
         <title>Search Products</title>
       </Helmet>
       <Row>
         <Col md={3}>
           <h3>Department</h3>
-          <div>
-            <ul>
-              <li>
-                <Link
+              <Link
                   className={'all' === category ? 'text-bold' : ''}
                   to={getFilterUrl({ category: 'all' })}
+                  onClick={checkBox()}
                 >
-                  Any
-                </Link>
-              </li>
+              </Link>
               {categories?.map((c) => (
                 <li key={c}>
                   <Link
                     className={c === category ? 'text-bold' : ''}
                     to={getFilterUrl({ category: c })}
                   >
-                    {c}
+                    {c} 
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
           <div>
             <h3>Price</h3>
-            <ul>
-              <li>
-                <Link
-                  className={'all' === price ? 'text-bold' : ''}
-                  to={getFilterUrl({ price: 'all' })}
-                >
-                  Any
-                </Link>
-              </li>
+            
+            <li>
+                  <Link
+                    to={getFilterUrl({ price: 'all' })}
+                    className={'text-bold'}
+                    
+                  >
+                  {/* <RiCheckboxBlankLine/>  */}
+                   Any
+                  </Link>
+                </li>
+
               {prices?.map((p) => (
                 <li key={p.value}>
                   <Link
@@ -180,11 +184,11 @@ export default function SearchScreen() {
                   </Link>
                 </li>
               ))}
-            </ul>
+  
           </div>
           <div>
             <h3>Avg. Customer Review</h3>
-            <ul>
+
               {ratings?.map((r) => (
                 <li key={r.name}>
                   <Link
@@ -203,7 +207,8 @@ export default function SearchScreen() {
                   <Rating caption={' & up'} rating={0}></Rating>
                 </Link>
               </li>
-            </ul>
+
+
           </div>
         </Col>
         <Col md={9}>
