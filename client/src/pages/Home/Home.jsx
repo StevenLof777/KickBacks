@@ -19,9 +19,9 @@ import AlertBox from '../../components/Animations/AlertBox.js';
 // eslint-disable-next-line
 import Spinner from '../../components/Animations/Spinner.js';
 import Banner from '../../components/Banner/Banner';
-// import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
+import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
-// import Main from '../../components/Main/Main.jsx';
+import Main from '../../components/Main/Main.jsx';
 // eslint-disable-next-line
 import { getError } from '../../utils.js';
 import './styles.css'
@@ -41,8 +41,8 @@ const reducer = (state, action) => {
 
 function Home() {
   const [{ 
-    // loading, 
-    // error, 
+    loading, 
+    error, 
     products
    }, dispatch] = useReducer(reducer, {
     products: [],
@@ -63,34 +63,34 @@ function Home() {
     fetchData();
   }, []);
 
-  // const [categories, setCategories] = useState([]);
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const { data } = await axios.get(`/api/products/categories`);
-  //       setCategories(data);
-  //     } catch (err) {
-  //       toast.error(getError(err));
-  //     }
-  //   };
-  //   fetchCategories();
-  // }, []);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`/api/products/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, []);
 
   return (
     <div>
       <Banner/>
       <div className="products">
-        {/* {loading ? (
+        {loading ? (
           <Spinner/>
         ) : error ? (
 
           <Container>
             <AlertBox variant='danger'>{error}</AlertBox>
           </Container> 
-        ) : ( */}
+        ) : (
           <Container className='product-container'>
 
-            {/* <h1>Featured Products</h1> */}
+            <h1>Featured Products</h1>
             {/* <Carousel/> */}
 
               <Col>
@@ -107,7 +107,7 @@ function Home() {
           {/* <Main/> */}
           </Container>
 
-        {/* )}    */}
+        )}
       </div>
     </div>
   );
