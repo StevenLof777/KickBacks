@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema(
     gender: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
+    size: { type: Number, required: true },
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
     numReviews: { type: Number, required: true },
