@@ -1,12 +1,28 @@
 import express from 'express';
-import Product from '../models/products.js';
+import Product from '../models/Product.js';
 import expressAsyncHandler from 'express-async-handler';
 
 const productRouter = express.Router();
 
+
+const uniqueBrand = new Set();
+const filterByBrand = arr => {
+    const newArr = arr.filter(element => {
+    const isDuplicate = uniqueBrand.has(element.brand);
+  
+    uniqueBrand.add(element.brand);
+  
+    if (!isDuplicate) {
+      return true;
+    }
+    return false;
+  });
+  return newArr;
+}
+
 productRouter.get('/', async (req, res) => {
   const products = await Product.find();
-  res.send(products);
+  res.send(filterByBrand(products));
 });
 
 const PAGE_SIZE = 6;

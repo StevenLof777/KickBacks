@@ -19,9 +19,9 @@ import AlertBox from '../../components/Animations/AlertBox.js';
 // eslint-disable-next-line
 import Spinner from '../../components/Animations/Spinner.js';
 import Banner from '../../components/Banner/Banner';
-import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
+// import Carousel from '../../components/Carousels/Home-Pg-Carousel.jsx';
 import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAIL } from '../../constants/actionTypes.js';
-import Main from '../../components/Main/Main.jsx';
+// import Main from '../../components/Main/Main.jsx';
 // eslint-disable-next-line
 import { getError } from '../../utils.js';
 import './styles.css'
@@ -49,6 +49,7 @@ function Home() {
     loading: true,
     error: '',
   });
+  
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: FETCH_REQUEST });

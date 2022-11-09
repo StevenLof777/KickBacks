@@ -13,7 +13,7 @@ const Banner = () => {
                     </Col>
                     <Col className="banner-right">
                       <div className="banner-right-text">  
-                        <h1 className="banner-h">STEP UP YOUR NEW SUMMER STYLE</h1>
+                        <h1 className="banner-h">STEP UP YOUR NEW FALL STYLE!</h1>
                         <Link className="shop-now" to='/'>SHOP NOW</Link>
                       </div>
                     </Col>
