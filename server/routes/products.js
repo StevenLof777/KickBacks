@@ -5,8 +5,8 @@ import expressAsyncHandler from 'express-async-handler';
 const productRouter = express.Router();
 
 
-const uniqueBrand = new Set();
 const filterByBrand = arr => {
+    const uniqueBrand = new Set();
     const newArr = arr.filter(element => {
     const isDuplicate = uniqueBrand.has(element.brand);
   
